@@ -534,6 +534,6 @@ const wordBank = [
   
 ];
 
-const seedGame = () => StartPage.bulkCreate(wordBank);
+const seedWords = () => StartPage.bulkCreate(wordBank);
 
-module.exports = seedGame;
+module.exports = seedWords;
