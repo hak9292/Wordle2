@@ -13,12 +13,12 @@
     <title>Login | Twordle</title>
 </head>
 <body>
-    <div class="card align-items-center display-1 text-light" style="background-color: #00539C;">
-        <div class="card-header">
-          {Two}rdle
+    <div class="card align-items-center display-1 text-light header-text" style="background-color: #00539C;">
+        <div>
+          {two}rdle
         </div>
     </div>
-    <section class="vh-100" style="background-color: #EEA47F;">
+    <section class="vh-100 text-style" style="background-color: #EEA47F;">
         <div class="container py-5 h-100">
           <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-12 col-md-8 col-lg-6 col-xl-5">
@@ -28,12 +28,12 @@
                   <h3 class="mb-5">Log in or Sign up Below</h3>
       
                   <div class="form-outline mb-4">
-                    <input type="email" id="typeEmailX-2" class="form-control form-control-lg" />
-                    <label class="form-label" for="typeEmailX-2">Username</label>
+                    <input type="username" id="typeUsernameX-2" class="a form-control form-control-lg" />
+                    <label class="form-label" for="typeUsernameX-2">Username</label>
                   </div>
       
                   <div class="form-outline mb-4">
-                    <input type="password" id="typePasswordX-2" class="form-control form-control-lg" />
+                    <input type="password" id="typePasswordX-2" class="a form-control form-control-lg" />
                     <label class="form-label" for="typePasswordX-2">Password</label>
                   </div>
       
@@ -45,19 +45,25 @@
                       value=""
                       id="form1Example3"
                     />
-                    <label class="form-check-label" for="form1Example3"> Remember password </label>
+                    <label class="form-check-label checkbox-text-style" for="form1Example3"> Remember password </label>
                   </div>
       
-                  <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
-                  <button class="btn btn-primary btn-lg btn-block" type="submit">Signup</button>
+                  <button class="btn btn-primary btn-lg btn-block" id="login-button" type="submit">Login</button>
+                  <button class="btn btn-primary btn-lg btn-block" id="signup-button" type="submit">Signup</button>
       
-      
+                  
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
+
+      <!-- <div class="card align-items-center text-light header-text" style="background-color: #00539C;">
+        <div>
+          {two}rdle
+        </div>
+    </div> -->
 
 <script src="/public/js/login.js"></script>
 </body>
