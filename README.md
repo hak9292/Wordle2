@@ -1,4 +1,4 @@
-# Wordle 2
+# {two}rdle
 
 ## Table of Contents
 
@@ -39,15 +39,15 @@ THEN
 ```
 ## User Flow Diagram
 
-![User Flow Diagram](./assets/images/FILENAME.pngorjpg)
+![User Flow Diagram](./public/images/FILENAME.pngorjpg)
 
 ## Demo
 
-![Deployed Application Page GIF](assets/images/demo.gif)
+![Deployed Application Page GIF](public/images/demo.gif)
 
 ### Images of Deployed Application
 
-![Deployed Application Page](assets/images/FILENAME.pngorjpg)
+![Deployed Application Page](public/images/FILENAME.pngorjpg)
 
 ### Link to Deployed Page
 You can try out the finished application here:
