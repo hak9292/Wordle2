@@ -1,3 +1,4 @@
+
 //requiring User model from one level up 
 const { User } = require('../models');
 
@@ -27,3 +28,4 @@ const userData = [
 const seedUsers = () => User.bulkCreate(userData);
 
 module.exports = seedUsers;
+
