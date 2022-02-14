@@ -29,7 +29,7 @@ for (r = 0; r < rows.length; r++) {
 function createKeyboard() {
     // creating rows
     
-    
+    // discovered lodash.js--greatest thing that's ever happened to me
    _.forEach(keys, function(keyRow, i) {
     var keyRowMaker = document.createElement('div');
     keyRowMaker.className = 'row';
@@ -44,7 +44,14 @@ function createKeyboard() {
     });
    });
 
+/*
 
+
+
+
+
+
+*/
 
 
         // for (let [key, name] of Object.entries(`keys.r${i + 1}`)){
