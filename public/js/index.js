@@ -5,7 +5,9 @@ const keys = {
     r2: ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
     r3: ['go', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'del']
 };
-
+const row1Count = keys.r1.length;
+const row2Count = keys.r2.length;
+const row3Count = keys.r3.length;
 
 // Invoke createBoard when someone successfully logs in or
 // when app fetches login data and logs user in automatically
@@ -26,21 +28,53 @@ for (r = 0; r < rows.length; r++) {
 
 function createKeyboard() {
     // creating rows
-    for (i = 0; i < Object.keys(keys).length; i++){
-        var keyRowMaker = document.createElement('div');
-        keyRowMaker.classname = 'row';
-        document.getElementById('keyboard').appendChild(keyRowMaker);
-        keyRowMaker.setAttribute('id', `k${i + 1}`);
+    
+    // discovered lodash.js--greatest thing that's ever happened to me
+   _.forEach(keys, function(keyRow, i) {
+    var keyRowMaker = document.createElement('div');
+    keyRowMaker.className = 'row';
+    document.getElementById('keyboard').appendChild(keyRowMaker);
+    keyRowMaker.setAttribute('id', `k${i}`);
+    _.forEach(keyRow, function(el){
+        var keyMaker = document.createElement('div');
+        keyMaker.className = 'col';
+        document.getElementById(`k${i}`).appendChild(keyMaker);
+        keyMaker.setAttribute('id', `key-${el}`);
+        $(keyMaker).html(el);
+    });
+   });
 
-        var keysR = `keys.r${i + 1}`;
-        keysR.forEach(createKeys(i))
-        function createKeys(i) {
+/*
+
+
+
+
+
+
+*/
+
+
+        // for (let [key, name] of Object.entries(`keys.r${i + 1}`)){
+        //     // console.log(Object.keys(keys).length);
+        //     console.log(key + ': ' + name);
+        //     var keyMaker = document.createElement('div');
+        //     keyMaker.className = 'col';
+        //     document.getElementById(`k${i + 1}`).appendChild(keyMaker);
+        //     keyMaker.setAttribute('id', `element`);
+            // key is r1, r2, r3
+            // name is the letters q, w, e, r, t, y, etc 
         
-            var keyMaker = document.createElement('div');
-            keyMaker.className = 'col';
-            document.getElementById(`k${i + 1}`).appendChild(keyMaker);
-            keyMaker.setAttribute('id', `element`);
-           };
+
+
+        // var keysR = `keys.r${i + 1}`;
+        // keysR.forEach(createKeys(i))
+        // function createKeys(i) {
+        
+        //     var keyMaker = document.createElement('div');
+        //     keyMaker.className = 'col';
+        //     document.getElementById(`k${i + 1}`).appendChild(keyMaker);
+        //     keyMaker.setAttribute('id', `element`);
+        //    };
     }
     // for (k = 0; k < keys.r1.length; k++) {
     //     var keyMaker = document.createElement('div');
@@ -53,7 +87,7 @@ function createKeyboard() {
 
     
 
-}
+
 
 
 
