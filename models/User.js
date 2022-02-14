@@ -40,9 +40,17 @@ User.init(
   {
     hooks: {
       async beforeCreate(newUserData) {
-        newUserData.password = await bcrypt.hash(newUserData.password, 10);
+        newUserData.password = await bcrypt.hash(newUserData.password, 10);  //salt length
         return newUserData;
       },
+      async beforeBulkCreate(newUserArray, options) { //
+        for (const user of newUserArray) //
+        {
+          user.password = await bcrypt.hash(user.password, 10);  //salt length
+
+        }
+        return newUserArray;
+      }
     },
     sequelize,
     timestamps: false,
