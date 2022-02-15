@@ -1,4 +1,4 @@
-const { StartPage } = require('../models');
+const { Words } = require('../models');
 
 const wordBank = [
   {
@@ -1456,6 +1456,6 @@ const wordBank = [
 
 ];
 
-const seedWords = () => StartPage.bulkCreate(wordBank);
+const seedWords = () => Words.bulkCreate(wordBank);
 
 module.exports = seedWords;

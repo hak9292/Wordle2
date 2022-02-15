@@ -2,7 +2,6 @@ const Sequelize = require('sequelize');
 require('dotenv').config();
 
 const sequelize = process.env.JAWS_DB 
-  //[scheme://][user[:[password]]@]host[:port][/schema]
   ? new Sequelize (process.env.JAWS_DB)
   : new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PW, {
     host: 'localhost',
