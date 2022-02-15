@@ -81,3 +81,94 @@
 
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
+
+
+.main {
+background: #EEA47F;
+box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.boardRow {
+    width: 351px;
+    height: 55px;
+    padding: 10px;
+margin: 2px;
+    /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
+}
+
+.boardCol {
+    width: 10px;
+    height: 55px;
+    background: #FCEDDA;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+/* border: 1px solid black; */
+/* box-sizing: border-box; */
+/* padding: 15px; */
+margin: 2px;
+
+}
+/* .k-keys {
+padding: 2px;
+margin: 2px solid black;
+} */
+#twordle-game {
+    width: 351px;
+    height: 409px;
+    display: flex;
+    /* flex-direction: column; */
+}
+
+/* .box {
+width: 55px;
+height: 55px;
+left: 308px;
+top: 12px;
+background: #FCEDDA;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+} */
+
+#keyboard {
+    /* position: fixed; */
+left: 0;
+bottom: 0;
+width: 100%;
+padding: 5px 0;
+/* padding: 12px; */
+background: #FCEDDA;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+user-select: none;
+
+
+}
+
+.letters{
+    width: 32px;
+}
+.key {
+height: 44px;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+background: #234E70;
+/* padding: 2px; */
+margin: 3px;
+text-align: center;
+border-radius: 4px;
+border: none;
+color: white;
+font-size: 16px;
+outline: none;
+cursor: pointer;
+/* display: inline-flex; */
+align-items: center;
+justify-content: center;
+vertical-align: top;
+padding: 0;
+position: relative;
+}
+
+.key:active {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.goDel {
+    width: 64px;
+}
