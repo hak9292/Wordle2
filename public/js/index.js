@@ -157,9 +157,9 @@ window.addEventListener("DOMContentLoaded", function () {
     console.log("loading script...");
     createBoard();
     createKeyboard();
-
+    const r1Keys = document.querySelectorAll("#kr1 button");
     for (i = 0; i < keys.r1.length; i++) {
-        keys.r1[i].onclick = ({ target }) => {
+        r1Keys[i].onclick = ({ target }) => {
             const pressedKey = target.getAttribute('data-letter');
             console.log(pressedKey);
         }     
