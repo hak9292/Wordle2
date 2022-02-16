@@ -17,6 +17,7 @@ const sess = {
   resave: false,
   saveUnitialized: true
 };
+//NOTE: add SESSION_SECRET to .env file
 app.use(session(sess));
 
 //middleware
@@ -27,13 +28,6 @@ app.use(express.static(__dirname + '/public'));
 //router
 app.use(controllers);
 
-// Express setup
-// const sess = {
-//   secret: process.env.SESSION_SECRET,
-//   resave: false,
-//   saveUnitialized: true
-// };
-// app.use(session(sess));
 
 const PORT = process.env.PORT || 3001;
 // sync sequelize models to the database, then turn on the server
