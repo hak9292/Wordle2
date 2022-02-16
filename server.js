@@ -28,12 +28,12 @@ app.use(express.static('public'));
 app.use(controllers);
 
 // Express setup
-const sess = {
-  secret: process.env.SESSION_SECRET,
-  resave: false,
-  saveUnitialized: true
-};
-app.use(session(sess));
+// const sess = {
+//   secret: process.env.SESSION_SECRET,
+//   resave: false,
+//   saveUnitialized: true
+// };
+// app.use(session(sess));
 
 const PORT = process.env.PORT || 3001;
 // sync sequelize models to the database, then turn on the server
