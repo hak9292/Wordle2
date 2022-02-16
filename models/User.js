@@ -16,6 +16,10 @@ User.init(
       allowNull: false,
       primaryKey: true
     },
+    top_score: {
+      type: DataTypes.INTEGER,
+      allowNull: true,   
+    },
     username: {
       type: DataTypes.STRING,
       allowNull: false,
