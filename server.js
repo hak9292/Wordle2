@@ -23,10 +23,11 @@ app.use(session(sess));
 //middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static('public'));
+app.use(express.static(__dirname + '/public'));
 
 //router
 app.use(controllers);
+
 
 const PORT = process.env.PORT || 3001;
 // sync sequelize models to the database, then turn on the server
