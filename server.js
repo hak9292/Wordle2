@@ -1,19 +1,23 @@
+const path = require('path');
 const express = require('express');
-const controllers = require('./controllers');
-const exphbs = require('express-handlebars');
-const hbs = exphbs.create({});
 const session = require('express-session');
-// import sequelize connection
-const sequelize = require('./config/connection');
-const sequelizeStore = require('connect-session-sequelize')(session.Store); //also needed to store sessions???
-// const { original } = require('parseurl');
-
 const app = express();
-const PORT = process.env.PORT || 3001;
 
-//handlebars
-app.engine('handlebars', hbs.engine);
-app.set('view engine', 'handlebars');
+const sequelize = require('./config/connection');
+const sequelizeStore = require('connect-session-sequelize')(session.Store);
+
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+
+const controllers = require('./controllers');
+
+
+const sess = {
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUnitialized: true
+};
+app.use(session(sess));
 
 //middleware
 app.use(express.json());
@@ -23,14 +27,15 @@ app.use(express.static('public'));
 //router
 app.use(controllers);
 
-// Set up sessions
+// Express setup
 const sess = {
-  secret: 'Super secret secret',
+  secret: process.env.SESSION_SECRET,
   resave: false,
-  saveUninitialized: true,
+  saveUnitialized: true
 };
 app.use(session(sess));
 
+const PORT = process.env.PORT || 3001;
 // sync sequelize models to the database, then turn on the server
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening on ' + PORT));
