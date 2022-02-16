@@ -31,6 +31,6 @@ app.use(controllers);
 
 const PORT = process.env.PORT || 3001;
 // sync sequelize models to the database, then turn on the server
-sequelize.sync({ force: false }).then(() => {
+sequelize.sync().then(() => {  //deleted force: false to allow seeding in Heroku
   app.listen(PORT, () => console.log('Now listening on ' + PORT));
 });
