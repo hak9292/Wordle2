@@ -26,7 +26,7 @@ function createBoard() {
             // tileMaker.className = 'col-md-12 k-keys'
             colMaker.className = 'col boardCol';
             document.getElementById(`row-${r + 1}`).appendChild(colMaker);
-            colMaker.setAttribute('id', `r${r + 1}c${c + 1}`);
+            colMaker.setAttribute('id', (c + 1));
             // $(colMaker).html(c * 10);
             // document.getElementById(`r${r + 1}-col${c + 1}`).appendChild(tileMaker);
             // tileMaker.setAttribute('id', `r${r + 1}-col${c + 1}-tile`)
@@ -158,10 +158,42 @@ window.addEventListener("DOMContentLoaded", function () {
     createBoard();
     createKeyboard();
 
-    for (i = 0; i < keys.r1.length; i++) {
-        keys.r1[i].onclick = ({ target }) => {
-            const pressedKey = target.getAttribute('data-letter');
-            console.log(pressedKey);
-        }     
+    var rKeys = document.querySelectorAll(".kb-row button");
+    var tries = [[]];
+    var openBox = 1;
+    var word = "ffffjs";
+
+    for (i = 0; i < 28; i++) {
+        rKeys[i].onclick = ({ target }) => {
+            var pressedKey = target.getAttribute('data-letter');
+            printLetter(pressedKey);
+            if (pressedKey === 'go') {
+                sendWord();
+                return;
+            }
+        }
     };
+    function sendWord() {
+        var currentWord = getCurrentWord();
+        if (currentWord != 6) {
+            window.alert("Word must be 6 letters!");
+        } 
+        var word
+        if (currentWord === word) {
+            window.alert("yes, indeed")
+        }
+    }
+    function printLetter(pressedKey) {
+        var userCurrentGuess = getCurrentWord();
+        if (userCurrentGuess && userCurrentGuess.length < 6) {
+            userCurrentGuess.push(pressedKey);
+            var openBoxEl = document.getElementById(String(openBox));
+            openBox = openBox + 1;
+            openBoxEl.textContent = pressedKey;
+        }
+    }
+    function getCurrentWord() {
+        var attempts = tries.length;
+        return tries[attempts - 1];
+    }
 });
