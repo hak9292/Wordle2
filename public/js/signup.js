@@ -16,6 +16,31 @@ function Signup() {
     console.log(usernameEl);
     console.log(emailEl);
     console.log(passwordEl);
+
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("Cookie", "connect.sid=s%3AsszHCtCiKyFoIypMGdTEkcmuv_tTlhby.1mOE0V6hf%2FZ8CWUDdkCgZB%2F9ypCjjNMC8UopGk8ckN0");
+
+    var raw = JSON.stringify({
+        "username": usernameEl,
+        "email": emailEl,
+        "password": passwordEl
+    });
+
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+    };
+
+    fetch("http://localhost:3001/api/users/", requestOptions)
+        .then(response => response.text())
+        .then(result => {
+            console.log(result)
+            window.location.href = '../html/index.html'
+          })
+        .catch(error => console.log('error', error));
 }
 
 loginEl.addEventListener('click', jumpToLogin);
