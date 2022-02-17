@@ -46,7 +46,10 @@ var requestOptions = {
 
 fetch("/api/users/login", requestOptions)
   .then(response => response.text())
-  .then(result => console.log(result))
+  .then(result => {
+      console.log(result)
+      window.location.href = '../html/index.html'
+    })
   .catch(error => console.log('error', error));
 }
 
