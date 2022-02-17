@@ -1,3 +1,4 @@
+const { header } = require("express/lib/request");
 const { sortedIndex } = require("lodash");
 
 const rows = ['1', '2', '3', '4', '5', '6', '7'];
@@ -198,4 +199,3 @@ window.addEventListener("DOMContentLoaded", function () {
         return tries[attempts - 1];
     }
 });
-
