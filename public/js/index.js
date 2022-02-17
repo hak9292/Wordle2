@@ -1,3 +1,5 @@
+const { sortedIndex } = require("lodash");
+
 const rows = ['1', '2', '3', '4', '5', '6', '7'];
 const cols = ['1', '2', '3', '4', '5', '6'];
 const keys = {
@@ -161,7 +163,7 @@ window.addEventListener("DOMContentLoaded", function () {
     var rKeys = document.querySelectorAll(".kb-row button");
     var tries = [[]];
     var openBox = 1;
-    var word = "ffffjs";
+    const correctWord = "apples";
 
     for (i = 0; i < 28; i++) {
         rKeys[i].onclick = ({ target }) => {
@@ -175,11 +177,10 @@ window.addEventListener("DOMContentLoaded", function () {
     };
     function sendWord() {
         var currentWord = getCurrentWord();
-        if (currentWord != 6) {
+        if (currentWord.length != 6) {
             window.alert("Word must be 6 letters!");
         } 
-        var word
-        if (currentWord === word) {
+        if (currentWord === correctWord) {
             window.alert("yes, indeed")
         }
     }
@@ -197,3 +198,4 @@ window.addEventListener("DOMContentLoaded", function () {
         return tries[attempts - 1];
     }
 });
+
