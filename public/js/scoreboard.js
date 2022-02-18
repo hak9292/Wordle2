@@ -1,1 +1,1 @@
-getScore (attempts) => 
+// getScore (attempts) => 
