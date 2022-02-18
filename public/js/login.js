@@ -32,7 +32,13 @@ var requestOptions = {
 };
 
 fetch("/api/users/login", requestOptions)
-  .then(response => response.text())
+  .then(response => {
+      console.log(response);
+      if (!response.ok) {
+          throw new Error(response.json().message)
+      }
+      return response.json()
+  })
   .then(result => {
       console.log(result)
       window.location.href = '../html/index.html'
