@@ -55,8 +55,21 @@ If you desire to run {two}rdle locally, follow these setup steps:
   Navigating to localhost:[PORT] should take you directly to the login/setup screen.
 
 ## [Project Usage](#usage)
+Game Play:
+
+Playing {two}rdle is as easy as navigating to the [{two}rdle](https://twordle2.herokuapp.com/) site.
+
+Sign in with your username and password then click "Login" to access the game board.
+If you do not have an account already, click "Sign Up" to create a user account. You will need to choose a unique username, and provide an unique email and password. Our password rules dictate that the password must have a length of at least 6 characters
+
+![Create your new twordle account by giving a username, email and password](Assets/user-signup-in-app.gif)
+
+Once you are in the game, your task is to guess 6 letter words until you find the correct answer. You have 7 tries to do this. If you are successful, you will be presented with a prompt to that effect.
 
 ### [Visuals](#visuals)
+Looking behind the scenes, we can see that the login/sign up functionality are GET and POST, respectively, REST APIs. Below is an example of user creation by using a REST testing tool like Postman:
+
+![Simple routes were created to facilitate user signup](Assets/user-signup-with-api.gif)
 
 ## [Licenses](#licenses)
   This project uses the ISC license.
