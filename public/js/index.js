@@ -10,6 +10,8 @@ const row1Count = keys.r1.length;
 const row2Count = keys.r2.length;
 const row3Count = keys.r3.length;
 
+const logoutEl = document.querySelector('#logout-button')
+
 // Invoke createBoard when someone successfully logs in or
 // when app fetches login data and logs user in automatically
 function createBoard() {
@@ -196,4 +198,28 @@ window.addEventListener("DOMContentLoaded", function () {
         var attempts = tries.length;
         return tries[attempts - 1];
     }
+
+    function logoutUser() {
+        console.log('clicked');
+        window.location.href = '../html/signup.html';
+
+        var myHeaders = new Headers();
+        myHeaders.append("Cookie", "connect.sid=s%3AhScOiaMVHuYelsSBwRcSt2-vvILYBXWZ.ikGdAVJgCOiEvz5Jm5SSAU1k8Nh%2BFad4Nz1k457Jxpo");
+
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            redirect: 'follow'
+        };
+
+        fetch("/api/users/logout", requestOptions)
+            .then(response => response.text())
+            .then(result => {
+                console.log(result)
+                window.location.href = '../html/login.html'
+              })
+            .catch(error => console.log('error', error)); 
+    }
+
+    logoutEl.addEventListener('click', logoutUser)
 });
