@@ -34,7 +34,7 @@ function Signup() {
         redirect: 'follow'
     };
 
-    fetch("http://localhost:3001/api/users/", requestOptions)
+    fetch("/api/users/", requestOptions)
         .then(response => response.text())
         .then(result => {
             console.log(result)
