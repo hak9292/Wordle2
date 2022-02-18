@@ -73,96 +73,6 @@ function createKeyboard() {
         delKey.style.color = "#EEA47F";
     }
 
-
-    /*
-    
-    
-    
-    
-    
-    
-    */
-
-
-    // for (let [key, name] of Object.entries(`keys.r${i + 1}`)){
-    //     // console.log(Object.keys(keys).length);
-    //     console.log(key + ': ' + name);
-    //     var keyMaker = document.createElement('div');
-    //     keyMaker.className = 'col';
-    //     document.getElementById(`k${i + 1}`).appendChild(keyMaker);
-    //     keyMaker.setAttribute('id', `element`);
-    // key is r1, r2, r3
-    // name is the letters q, w, e, r, t, y, etc 
-
-
-
-    // var keysR = `keys.r${i + 1}`;
-    // keysR.forEach(createKeys(i))
-    // function createKeys(i) {
-
-    //     var keyMaker = document.createElement('div');
-    //     keyMaker.className = 'col';
-    //     document.getElementById(`k${i + 1}`).appendChild(keyMaker);
-    //     keyMaker.setAttribute('id', `element`);
-    //    };
-}
-// function printInput() {
-//     var pressedQ = $('#key-q');
-//     var pressedW = $('#key-w');
-//     var pressedE = $('#key-e');
-//     var pressedR = $('#key-r');
-//     var pressedT = $('#key-t');
-//     var pressedY = $('#key-y');
-//     var pressedU = $('#key-u');
-//     var pressedI = $('#key-i');
-//     var pressedO = $('#key-o');
-//     var pressedP = $('#key-p');
-//     var pressedA = $('#key-a');
-//     var pressedS = $('#key-s');
-//     var pressedD = $('#key-d');
-//     var pressedF = $('#key-f');
-//     var pressedG = $('#key-g');
-//     var pressedH = $('#key-h');
-//     var pressedJ = $('#key-j');
-//     var pressedK = $('#key-k');
-//     var pressedL = $('#key-l');
-//     var pressedZ = $('#key-z');
-//     var pressedX = $('#key-x');
-//     var pressedC = $('#key-c');
-//     var pressedV = $('#key-v');
-//     var pressedB = $('#key-b');
-//     var pressedN = $('#key-n');
-//     var pressedM = $('#key-m');
-//     var pressedGo = $('#key-go');
-//     var pressedDel = $('#key-del');
-
-//     pressedQ.on("click", setLetter());
-//     pressedW.on("click", setLetter());
-//     pressedE.on("click", setLetter());
-//     pressedR.on("click", setLetter());
-//     pressedT.on("click", setLetter());
-//     pressedY.on("click", setLetter());
-//     pressedU.on("click", setLetter());
-
-//     function setletter() {
-//         $(colMaker).html(c * 10);
-//     }
-// }
-// for (k = 0; k < keys.r1.length; k++) {
-//     var keyMaker = document.createElement('div');
-//     keyMaker.className = 'col';
-//     document.getElementById('k1').appendChild(keyMaker);
-//     keyMaker.setAttribute('id', `${keys.r1[k]}`);
-// }
-
-
-
-
-
-
-
-
-
 window.addEventListener("DOMContentLoaded", function () {
     createBoard();
     createKeyboard();
@@ -195,9 +105,11 @@ window.addEventListener("DOMContentLoaded", function () {
 
         }
     };
-//need to insert a else clause containing a check to see if it is a word
+//*********still need to insert a else clause containing a check to see if it is a word*******
+// function when user presses "go"
     function pressGo() {
         var userGuessArr = getCurrentArr();
+        //
         var userGuess = userGuessArr.join('');
         attempts = attempts + 1;
         if (userGuessArr.length < 6) {
@@ -260,4 +172,4 @@ window.addEventListener("DOMContentLoaded", function () {
 
     logoutEl.addEventListener('click', logoutUser)
 
-});
+})};
