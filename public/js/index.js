@@ -106,19 +106,11 @@ window.addEventListener("DOMContentLoaded", function () {
     // function when user presses "go"
     function pressGo() {
         var userGuessArr = getCurrentArr();
-        var timeInt = 150;
+        var timeInt = 100;
         var userGuess = userGuessArr.join('');
         var firstGuess = attempts * 6 + 1;
-        userGuessArr.forEach((pressedKey, i) => {
-            setTimeout(() => {
-                var squareColor = getSquareColor(pressedKey, i);
-                // var squareColor = 'rgb(58, 58, 60)';
-                var guessId = firstGuess + i;
-                var guessEl = document.getElementById(guessId);
-                guessEl.classList.add("animate__flipInY");
-                guessEl.style = `background-color:${squareColor}; border-color:${squareColor}`;
-            }, timeInt * i)
-        });
+        // ******NEED TO SET KEY COLOR*********
+        // var keyEl = document.getElementById(`key-${pressedKey});
         attempts = attempts + 1;
         if (userGuessArr.length < 6) {
             window.alert('Word must be 6 letters!');
@@ -129,30 +121,51 @@ window.addEventListener("DOMContentLoaded", function () {
         if (attempts === 7) {
             window.alert(`dont be sorry, be better :). The word was ${actualWord}`);
         }
+        userGuessArr.forEach((pressedKey, i) => {
+            setTimeout(() => {
+                var squareColor = setSquareColor(pressedKey, i);
+                var guessId = firstGuess + i;
+                var guessEl = document.getElementById(guessId);
+                var keyEl = document.getElementById(`key-${pressedKey}`);
+                // keyColor = setKeyColor(pressedKey, keyEl);
+                // keyEl.style = `background-color: ${keyColor}`;
+                guessEl.classList.add("animate__flipInY");
+                guessEl.style = `background-color: ${squareColor}; border-color: ${squareColor}`;
+            }, timeInt * i)
+        });
         tries.push([]);
     }
-    function getSquareColor(pressedKey, i) {
+    function setSquareColor(pressedKey, i) {
         var rightLetter = actualWord.includes(pressedKey);
         var wrongLetter = !rightLetter;
         var letterLocation = actualWord.charAt(i);
         var letterLocationRight = pressedKey === letterLocation;
         if (rightLetter && !letterLocationRight) {
-            return "#E7E8D1"
+            return '#E7E8D1';
         }
         if (wrongLetter) {
-            return "#B85042";
+            return '#B85042';
         }
         if (letterLocationRight) {
-            return "#A7BEAE"
+            return '#A7BEAE'
         }
-
     }
+    // function setKeyColor(pressedKey, i) {
+    //     var rightLetter = actualWord.includes(pressedKey);
+    //     var wrongLetter = !rightLetter;
+    //     if (rightLetter) {
+    //         return "#A7BEAE"
+    //     }
+    //     if (wrongLetter) {
+    //         return "#808080";
+    //     }
+    // }
     function pressDel() {
         var userGuessArr = getCurrentArr();
         userGuessArr.pop();
         tries[tries.length - 1] = userGuessArr;
         var lastLetterEl = document.getElementById(String(openBox - 1));
-        lastLetterEl.textContent = "";
+        lastLetterEl.textContent = '';
         openBox = openBox - 1;
     }
     function printLetter(pressedKey) {
