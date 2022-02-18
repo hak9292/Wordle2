@@ -85,7 +85,7 @@ window.addEventListener("DOMContentLoaded", function () {
     // goDel.parentNode.removeChild(goDel);
     var tries = [[]];
     var openBox = 1;
-    var actualWord = "aaaaaa";
+    var actualWord = "aaaaab";
     var attempts = 0;
 
     for (i = 0; i < 28; i++) {
@@ -111,8 +111,8 @@ window.addEventListener("DOMContentLoaded", function () {
         var firstGuess = attempts * 6 + 1;
         userGuessArr.forEach((pressedKey, i) => {
             setTimeout(() => {
-                // var squareColor = getSquareColor(pressedKey, i);
-                var squareColor = 'rgb(58, 58, 60)';
+                var squareColor = getSquareColor(pressedKey, i);
+                // var squareColor = 'rgb(58, 58, 60)';
                 var guessId = firstGuess + i;
                 var guessEl = document.getElementById(guessId);
                 guessEl.classList.add("animate__flipInY");
@@ -130,6 +130,22 @@ window.addEventListener("DOMContentLoaded", function () {
             window.alert(`dont be sorry, be better :). The word was ${actualWord}`);
         }
         tries.push([]);
+    }
+    function getSquareColor(pressedKey, i) {
+        var rightLetter = actualWord.includes(pressedKey);
+        var wrongLetter = !rightLetter;
+        var letterLocation = actualWord.charAt(i);
+        var letterLocationRight = pressedKey === letterLocation;
+        if (rightLetter && !letterLocationRight) {
+            return "#E7E8D1"
+        }
+        if (wrongLetter) {
+            return "#B85042";
+        }
+        if (letterLocationRight) {
+            return "#A7BEAE"
+        }
+
     }
     function pressDel() {
         var userGuessArr = getCurrentArr();
