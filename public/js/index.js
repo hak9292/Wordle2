@@ -10,6 +10,10 @@ const row1Count = keys.r1.length;
 const row2Count = keys.r2.length;
 const row3Count = keys.r3.length;
 
+//scoreboard
+const scoreModalEl = $('#score-modal');
+//scoreModalEl.modal('hide')--where to put?
+
 // Invoke createBoard when someone successfully logs in or
 // when app fetches login data and logs user in automatically
 function createBoard() {
