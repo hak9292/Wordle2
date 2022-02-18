@@ -1,4 +1,7 @@
 const loginEl = document.querySelector('#login-button');
+const signupEl = document.querySelector('#signup-button');
+
+
 
 
 
@@ -11,22 +14,6 @@ function grabLoginInfo() {
     console.log(usernameEl);
     console.log(usernameEl.type);
     console.log(passwordEl);
-
-//     let raw = JSON.stringify({
-//         "username": usernameEl,
-//         "password": passwordEl
-//       });
-
-//     let requestOptions = {
-//         method: 'POST',
-//         body: raw,
-//         redirect: 'follow'
-//     };
-    
-//     fetch("controllers/api/users/login", requestOptions)
-//   .then(response => response.text())
-//   .then(result => console.log(result))
-//   .catch(error => console.log('error', error));
 
 var myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/json");
@@ -46,10 +33,19 @@ var requestOptions = {
 
 fetch("/api/users/login", requestOptions)
   .then(response => response.text())
-  .then(result => console.log(result))
+  .then(result => {
+      console.log(result)
+      window.location.href = '../html/index.html'
+    })
   .catch(error => console.log('error', error));
+}
+
+function jumpToSignup() {
+    console.log('signup button clicked')
+    window.location.href = '../html/signup.html'
 }
 
 
 loginEl.addEventListener('click', grabLoginInfo);
 
+signupEl.addEventListener('click', jumpToSignup)
