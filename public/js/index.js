@@ -34,7 +34,7 @@ function createBoard() {
             var colMaker = document.createElement('div');
             // var tileMaker = document.createElement('div');
             // tileMaker.className = 'col-md-12 k-keys'
-            colMaker.className = 'col boardCol';
+            colMaker.className = 'col boardCol animate__animated';
             document.getElementById(`row-${r + 1}`).appendChild(colMaker);
             colMaker.setAttribute('id', (boxNum));
             // $(colMaker).html(c * 10);
@@ -47,7 +47,7 @@ function createBoard() {
 function createKeyboard() {
     // creating rows
 
-    // discovered lodash.js--greatest thing that's ever happened to me
+    // discovered lodash.js, this is a foreeach function that makes it easier to write out than vanilla js
     _.forEach(keys, function (keyRow, i) {
         var keyRowMaker = document.createElement('div');
         keyRowMaker.className = 'row kb-row';
@@ -91,8 +91,6 @@ window.addEventListener("DOMContentLoaded", function () {
     for (i = 0; i < 28; i++) {
         rKeys[i].onclick = ({ target }) => {
             var pressedKey = target.getAttribute('data-letter');
-
-
             if (pressedKey === 'go') {
                 pressGo();
                 return;
@@ -102,25 +100,35 @@ window.addEventListener("DOMContentLoaded", function () {
                 return;
             }
             printLetter(pressedKey);
-
         }
     };
-//*********still need to insert a else clause containing a check to see if it is a word*******
-// function when user presses "go"
+    //*********still need to insert a else clause containing a check to see if it is a word*******
+    // function when user presses "go"
     function pressGo() {
         var userGuessArr = getCurrentArr();
-        //
+        var timeInt = 150;
         var userGuess = userGuessArr.join('');
+        var firstGuess = attempts * 6 + 1;
+        userGuessArr.forEach((pressedKey, i) => {
+            setTimeout(() => {
+                // var squareColor = getSquareColor(pressedKey, i);
+                var squareColor = 'rgb(58, 58, 60)';
+                var guessId = firstGuess + i;
+                var guessEl = document.getElementById(guessId);
+                guessEl.classList.add("animate__flipInY");
+                guessEl.style = `background-color:${squareColor}; border-color:${squareColor}`;
+            }, timeInt * i)
+        });
         attempts = attempts + 1;
         if (userGuessArr.length < 6) {
             window.alert('Word must be 6 letters!');
         }
         if (userGuess === actualWord) {
             window.alert('yes, indeed');
-        } 
+        }
         if (attempts === 7) {
             window.alert(`dont be sorry, be better :). The word was ${actualWord}`);
-        } 
+        }
         tries.push([]);
     }
     function pressDel() {
@@ -166,8 +174,8 @@ window.addEventListener("DOMContentLoaded", function () {
             .then(result => {
                 console.log(result)
                 window.location.href = '../html/login.html'
-              })
-            .catch(error => console.log('error', error)); 
+            })
+            .catch(error => console.log('error', error));
     }
 
     logoutEl.addEventListener('click', logoutUser)
