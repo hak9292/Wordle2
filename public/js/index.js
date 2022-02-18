@@ -14,7 +14,7 @@ const logoutEl = document.querySelector('#logout-button')
 
 
 //scoreboard
-const scoreModalEl = $('#score-modal');
+//const scoreModalEl = $('#score-modal');
 //scoreModalEl.modal('hide')--where to put?
 
 // Invoke createBoard when someone successfully logs in or
