@@ -78,16 +78,16 @@ If you desire to run {two}rdle locally, follow these setup steps:
 ## [Project Credits](#credits)
 
   Project Authors:
-  Leslie Crouch - [tripledawg](https://github.com/tripledawg)
-  Hee Hoon Kim - [hak9292](https://github.com/hak9292)
-  Sam Rapowitz - [samrapow](https://github.com/samrapow)
-  Jasmine Washington - [jcwashington](https://github.com/jcwashington)
+  - Leslie Crouch - [tripledawg](https://github.com/tripledawg)
+  - Hee Hoon Kim - [hak9292](https://github.com/hak9292)
+  - Sam Rapowitz - [samrapow](https://github.com/samrapow)
+  - Jasmine Washington - [jcwashington](https://github.com/jcwashington)
 
   
 
 ## [Have Questions?](#questions)
-  Contact any of the authors with your questions:
-	* Leslie Crouch - <iamlesliecrouch@gmail.com>
-	* Hee Hoon Kim - <ak112997@gmail.com>
-	* Sam Rapowitz - <samrapow@gmail.com>
-	* Jasmine Washington - <jasmine.washington412@gmail.com>
+  Contact any of the authors via email with your questions:
+  * Leslie Crouch - <iamlesliecrouch@gmail.com>
+  * Hee Hoon Kim - <ak112997@gmail.com>
+  * Sam Rapowitz - <samrapow@gmail.com>
+  * Jasmine Washington - <jasmine.washington412@gmail.com>
