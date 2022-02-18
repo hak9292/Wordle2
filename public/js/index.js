@@ -22,18 +22,21 @@ const logoutEl = document.querySelector('#logout-button')
 function createBoard() {
     // loops through and creates rows w/ id's
     for (r = 0; r < rows.length; r++) {
+        var rr = r + 1;
         var rowMaker = document.createElement('div');
         rowMaker.className = 'row boardRow';
         document.getElementById('twordle-game').appendChild(rowMaker);
-        rowMaker.setAttribute('id', `row-${r + 1}`);
+        rowMaker.setAttribute('id', `row-${rr}`);
         // within loop, creates columns per row w/ id's per box
         for (c = 0; c < cols.length; c++) {
+            var cc = c + 1;
+            var boxNum = (r * 6) + (cc);
             var colMaker = document.createElement('div');
             // var tileMaker = document.createElement('div');
             // tileMaker.className = 'col-md-12 k-keys'
             colMaker.className = 'col boardCol';
             document.getElementById(`row-${r + 1}`).appendChild(colMaker);
-            colMaker.setAttribute('id', (c + 1));
+            colMaker.setAttribute('id', (boxNum));
             // $(colMaker).html(c * 10);
             // document.getElementById(`r${r + 1}-col${c + 1}`).appendChild(tileMaker);
             // tileMaker.setAttribute('id', `r${r + 1}-col${c + 1}-tile`)
@@ -161,7 +164,6 @@ function createKeyboard() {
 
 
 window.addEventListener("DOMContentLoaded", function () {
-    console.log("loading script...");
     createBoard();
     createKeyboard();
 
@@ -188,38 +190,39 @@ window.addEventListener("DOMContentLoaded", function () {
             if (pressedKey === 'del') {
                 pressDel();
                 return;
-            } 
-                printLetter(pressedKey);
-            
+            }
+            printLetter(pressedKey);
+
         }
     };
-
+//need to insert a else clause containing a check to see if it is a word
     function pressGo() {
-        var userGuessArr = getCurrentWord();
-        if (userGuessArr != 6) {
-            window.alert("Word must be 6 letters!");
-        }
+        var userGuessArr = getCurrentArr();
         var userGuess = userGuessArr.join('');
-        if (userGuess === actualWord) {
-            window.alert("yes, indeed")
+        attempts = attempts + 1;
+        if (userGuessArr.length < 6) {
+            window.alert('Word must be 6 letters!');
         }
+        if (userGuess === actualWord) {
+            window.alert('yes, indeed');
+        } 
+        if (attempts === 6) {
+            window.alert(`dont be sorry, be better :). The word was ${actualWord}`);
+        } 
+        tries.push([]);
     }
     function pressDel() {
-        var userGuessArr = getCurrentWord();
+        var userGuessArr = getCurrentArr();
         userGuessArr.pop();
-
         tries[tries.length - 1] = userGuessArr;
         var lastLetterEl = document.getElementById(String(openBox - 1));
-
         lastLetterEl.textContent = "";
         openBox = openBox - 1;
-        
     }
     function printLetter(pressedKey) {
-        var userGuessArr = getCurrentWord();
+        var userGuessArr = getCurrentArr();
         if (userGuessArr && userGuessArr.length < 6) {
             userGuessArr.push(pressedKey);
-
             var openBoxEl = document.getElementById(String(openBox));
             openBox = openBox + 1;
             openBoxEl.textContent = pressedKey;
@@ -227,9 +230,9 @@ window.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    function getCurrentWord() {
-        var attempts = tries.length;
-        return tries[attempts - 1];
+    function getCurrentArr() {
+        var numOfLetters = tries.length;
+        return tries[numOfLetters - 1];
     }
 
 
