@@ -206,7 +206,7 @@ window.addEventListener("DOMContentLoaded", function () {
         if (userGuess === actualWord) {
             window.alert('yes, indeed');
         } 
-        if (attempts === 6) {
+        if (attempts === 7) {
             window.alert(`dont be sorry, be better :). The word was ${actualWord}`);
         } 
         tries.push([]);
