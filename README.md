@@ -1,70 +1,106 @@
 # {two}rdle
 
-## Table of Contents
+  [![License: ISC](https://img.shields.io/badge/license-ISC-green)](http://opensource.org/licenses/ISC)
 
-- [Description](#description)
-	- [User Story](#user-story)
-	- [Acceptance Criteria](#acceptance-criteria)
-	- [Demo](#demo)
-	- [User Flow Diagram](#user-flow-diagram)
-- [Link to Deployed Page](#link-to-deployed-page)
-- [How to Use the Application](#how-to-use-the-application)
-- [Authors](#authors)
+  ## Description
+  In the past year, we've seen Wordle -- a web-based word guessing game -- become extremely popular with users everywhere. But we were left thinking, what if we could make it bettter? What if we had more letters, more guesses, and authentication which would provide a way for multiple users to play on the same device. And thus, the idea for {two}rdle was conceived.
 
-### Description
-(Description here)
+  ```md
+    AS A player of a word guessing game
+    I WANT the ablility to create an account and log-in
+    SO THAT a device isn't limited to just a single user
+	I WANT TO be able to guess at 6 letter words
+	SO THAT there is more variety and guessing attempts
+  ```
 
+  For this project, we utilized the following technologies:
+  - Javascript, Express.js, MySQL and Sequelize
+	- additional npm packages: [bcrypt](https://www.npmjs.com/package/bcrypt), [passport](https://www.passportjs.org/)
+  - For testing and debugging we utilized Postman
 
+  Future plans for enhancement:
+  - Adding a way for users to view their player stats. This could include individual stats as well as possible player rankings
+  - Allowing for deleting of account (and the associated data)
+  - Ability to decide word length for gameplay
+  
+  ## Contents
+  1. [Installation](#installation)
+  2. [Project Usage](#usage)
+      1. [Visuals](#visuals)
+  3. [Licenses](#licenses)
+  4. [Testing](#testing)
+  5. [How to contribute](#contributing)
+  6. [Project Credits](#credits)
+      1. Authors
+      2. Additional Acknowledgements
+  7. [Have Questions?](#questions)
 
-## User Story
-```
-AS A player
-I WANT to...
-SO THAT...
-```
-## Acceptance Criteria
-```
-GIVEN
-WHEN
-THEN
+## [Installation](#installation)
+This application is running on a Heroku hosted site. 
+You can find it here: [{two}rdle](https://twordle2.herokuapp.com/)
 
-WHEN
-THEN
+If you desire to run {two}rdle locally, follow these setup steps:
+  To clone repo: 
+  ```md
+  git clone git@github.com:hak9292/Wordle2.git
+  ```
 
-WHEN
-THEN
+  From within MySQL, execute the SQL script file:
+  ```md
+  source ~/db/schema.sql
+  ```
+  Run 'npm install' to install necessary dependencies. 
+  Run 'npm run seed' to seed the data.
+  Run 'npm start' to start the application.
+  Navigating to localhost:[PORT] should take you directly to the login/setup screen.
 
-WHEN
-THEN
-```
-## User Flow Diagram
+## [Project Usage](#usage)
+Game Play:
 
-![User Flow Diagram](./public/images/FILENAME.pngorjpg)
+Playing {two}rdle is as easy as navigating to the [{two}rdle](https://twordle2.herokuapp.com/) site.
 
-## Demo
+Sign in with your username and password then click "Login" to access the game board.
+If you do not have an account already, click "Sign Up" to create a user account. You will need to choose a unique username, and provide an unique email and password. Our password rules dictate that the password must have a length of at least 6 characters
 
-![Deployed Application Page GIF](public/images/demo.gif)
+![Create your new twordle account by giving a username, email and password](Assets/user-signup-in-app.gif)
 
-### Images of Deployed Application
+Once you are in the game, your task is to guess 6 letter words until you find the correct answer. You have 7 tries to do this. If you are successful, you will be presented with a prompt to that effect.
 
-![Deployed Application Page](public/images/FILENAME.pngorjpg)
+### [Visuals](#visuals)
+Looking behind the scenes, we can see that the login/sign up functionality are GET and POST, respectively, REST APIs. Below is an example of user creation by using a REST testing tool like Postman:
 
-### Link to Deployed Page
-You can try out the finished application here:
+![Simple routes were created to facilitate user signup](Assets/user-signup-with-api.gif)
 
-[Click here to launch the app!](https://LINKHERE.com/)
+## [Licenses](#licenses)
+  This project uses the ISC license.
 
-### How to Use the Application
+  To find out more information on open source licenses, please refer to [https://choosealicense.com/](https://choosealicense.com/).
 
-1. 
-2. 
-3. 
-4. 
-5. 
+## [Testing](#testing)
+  During development, testing and debugging was done using Postman to facilitate our API testing
 
-### Authors
+## [How to contribute](#contributing)
+  If you would like to contribute to this project, follow the steps below.
+  1. Fork the repo on GitHub.
+  2. Clone the project to your own machine.
+  3. Create a branch for your feature work.
+  3. Commit changes to your own branch.
+  4. Push your work back up to your fork.
+  5. Submit a Pull request so that we can review your changes
 
-* Sam Rapowitz
-* Leslie Crouch
-* Jasmine Washington
-* Hee Hoon Kim
+## [Project Credits](#credits)
+
+  Project Authors:
+  - Leslie Crouch - [tripledawg](https://github.com/tripledawg)
+  - Hee Hoon Kim - [hak9292](https://github.com/hak9292)
+  - Sam Rapowitz - [samrapow](https://github.com/samrapow)
+  - Jasmine Washington - [jcwashington](https://github.com/jcwashington)
+
+  
+
+## [Have Questions?](#questions)
+  Contact any of the authors via email with your questions:
+  * Leslie Crouch - <iamlesliecrouch@gmail.com>
+  * Hee Hoon Kim - <ak112997@gmail.com>
+  * Sam Rapowitz - <samrapow@gmail.com>
+  * Jasmine Washington - <jasmine.washington412@gmail.com>
