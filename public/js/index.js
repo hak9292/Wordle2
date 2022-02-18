@@ -12,6 +12,11 @@ const row3Count = keys.r3.length;
 
 const logoutEl = document.querySelector('#logout-button')
 
+
+//scoreboard
+const scoreModalEl = $('#score-modal');
+//scoreModalEl.modal('hide')--where to put?
+
 // Invoke createBoard when someone successfully logs in or
 // when app fetches login data and logs user in automatically
 function createBoard() {
@@ -59,13 +64,13 @@ function createKeyboard() {
     function setKBAttr() {
         var goKey = document.getElementById('key-go');
         goKey.style.color = "#A7BEAE";
-        goKey.className = 'col key goDel'
+        goKey.className = 'col key go-del'
         var delKey = document.getElementById('key-del');
-        delKey.className = 'col key goDel'
+        delKey.className = 'col key go-del'
         delKey.style.color = "#EEA47F";
     }
 
-    
+
     /*
     
     
@@ -161,43 +166,72 @@ window.addEventListener("DOMContentLoaded", function () {
     createKeyboard();
 
     var rKeys = document.querySelectorAll(".kb-row button");
+    // rKeys.forEach(function(a) {
+    //     a.remove()
+    //   })
+
+    // goDel.parentNode.removeChild(goDel);
     var tries = [[]];
     var openBox = 1;
-    var word = "ffffjs";
+    var actualWord = "aaaaaa";
+    var attempts = 0;
 
     for (i = 0; i < 28; i++) {
         rKeys[i].onclick = ({ target }) => {
             var pressedKey = target.getAttribute('data-letter');
-            printLetter(pressedKey);
+
+
             if (pressedKey === 'go') {
-                sendWord();
+                pressGo();
                 return;
             }
+            if (pressedKey === 'del') {
+                pressDel();
+                return;
+            } 
+                printLetter(pressedKey);
+            
         }
     };
-    function sendWord() {
-        var currentWord = getCurrentWord();
-        if (currentWord != 6) {
+
+    function pressGo() {
+        var userGuessArr = getCurrentWord();
+        if (userGuessArr != 6) {
             window.alert("Word must be 6 letters!");
-        } 
-        var word
-        if (currentWord === word) {
+        }
+        var userGuess = userGuessArr.join('');
+        if (userGuess === actualWord) {
             window.alert("yes, indeed")
         }
     }
+    function pressDel() {
+        var userGuessArr = getCurrentWord();
+        userGuessArr.pop();
+
+        tries[tries.length - 1] = userGuessArr;
+        var lastLetterEl = document.getElementById(String(openBox - 1));
+
+        lastLetterEl.textContent = "";
+        openBox = openBox - 1;
+        
+    }
     function printLetter(pressedKey) {
-        var userCurrentGuess = getCurrentWord();
-        if (userCurrentGuess && userCurrentGuess.length < 6) {
-            userCurrentGuess.push(pressedKey);
+        var userGuessArr = getCurrentWord();
+        if (userGuessArr && userGuessArr.length < 6) {
+            userGuessArr.push(pressedKey);
+
             var openBoxEl = document.getElementById(String(openBox));
             openBox = openBox + 1;
             openBoxEl.textContent = pressedKey;
+
         }
     }
+
     function getCurrentWord() {
         var attempts = tries.length;
         return tries[attempts - 1];
     }
+
 
     function logoutUser() {
         console.log('clicked');
@@ -222,4 +256,5 @@ window.addEventListener("DOMContentLoaded", function () {
     }
 
     logoutEl.addEventListener('click', logoutUser)
+
 });
