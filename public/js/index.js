@@ -72,7 +72,7 @@ function createKeyboard() {
         delKey.className = 'col key go-del'
         delKey.style.color = "#EEA47F";
     }
-
+}
 window.addEventListener("DOMContentLoaded", function () {
     createBoard();
     createKeyboard();
@@ -172,4 +172,4 @@ window.addEventListener("DOMContentLoaded", function () {
 
     logoutEl.addEventListener('click', logoutUser)
 
-})};
+});
