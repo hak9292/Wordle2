@@ -1,4 +1,4 @@
-const { HasMany } = require('sequelize/types');
+//const { HasMany } = require('sequelize/types');
 const User = require('./User');
 const Words = require('./Words');
 // const Score = require('./Score');
