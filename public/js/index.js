@@ -137,10 +137,9 @@ function startGame() {
 
     var attempts = 0;
 
-    var myset = new Set();
-    myset.add("first");
-
-    myset.add("user");
+    // var myset = new Set();
+    // myset.add("first");
+    // myset.add("user");
     //true if not in set
     // false if in set
     // get all valid wrods from database

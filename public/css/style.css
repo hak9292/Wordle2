@@ -179,11 +179,15 @@ position: relative;
     width: 64px;
 }
 
-#start-button {
+#start-game {
     text-align: center;
     justify-content: center;
     margin: 0 auto;
-
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    font-;
 }
 
 #start-div {
