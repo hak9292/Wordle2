@@ -66,6 +66,8 @@ If you do not have an account already, click "Sign Up" to create a user account.
 
 Once you are in the game, your task is to guess 6 letter words until you find the correct answer. You have 7 tries to do this. If you are successful, you will be presented with a prompt to that effect.
 
+![Play the game](Assets/index-demo.gif)
+
 ### [Visuals](#visuals)
 Looking behind the scenes, we can see that the login/sign up functionality are GET and POST, respectively, REST APIs. Below is an example of user creation by using a REST testing tool like Postman:
 
