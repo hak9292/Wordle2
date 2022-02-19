@@ -1453,7 +1453,6 @@ const wordBank = [
   {
     "word":'yellow',
   }
-
 ];
 
 const seedWords = () => Words.bulkCreate(wordBank);
