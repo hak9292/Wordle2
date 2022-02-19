@@ -88,6 +88,27 @@ window.addEventListener("DOMContentLoaded", function () {
     var actualWord = "aaaaab";
     var attempts = 0;
 
+    var myset = new Set();
+    myset.add("first");
+
+    myset.add("user"); 
+    //true if not in set
+    // false if in set
+    // get all valid wrods from database
+    // add them to a set
+
+    // when you need to check if an input is a valid word, try to add it to the set
+    // if true ( we were able to add it ), it means it didnt' exist in the set so it's not valid
+    //      make sure you delete this false word
+    // if false ( it existed in the set, so we can't add it), hence it's a valid word!
+    // set.has(word);
+    // apples
+    // user: oranges
+    // set: apples, oranges
+    // user: oranges
+
+    // e f g
+
     for (i = 0; i < 28; i++) {
         rKeys[i].onclick = ({ target }) => {
             var pressedKey = target.getAttribute('data-letter');
@@ -114,6 +135,7 @@ window.addEventListener("DOMContentLoaded", function () {
         attempts = attempts + 1;
         if (userGuessArr.length < 6) {
             window.alert('Word must be 6 letters!');
+            return;
         }
         if (userGuess === actualWord) {
             window.alert('yes, indeed');
@@ -127,8 +149,9 @@ window.addEventListener("DOMContentLoaded", function () {
                 var guessId = firstGuess + i;
                 var guessEl = document.getElementById(guessId);
                 var keyEl = document.getElementById(`key-${pressedKey}`);
-                // keyColor = setKeyColor(pressedKey, keyEl);
-                // keyEl.style = `background-color: ${keyColor}`;
+                console.log(keyEl);
+                keyColor = setKeyColor(pressedKey, keyEl);
+                keyEl.style = `background-color: ${keyColor}`;
                 guessEl.classList.add("animate__flipInY");
                 guessEl.style = `background-color: ${squareColor}; border-color: ${squareColor}`;
             }, timeInt * i)
@@ -150,16 +173,16 @@ window.addEventListener("DOMContentLoaded", function () {
             return '#A7BEAE'
         }
     }
-    // function setKeyColor(pressedKey, i) {
-    //     var rightLetter = actualWord.includes(pressedKey);
-    //     var wrongLetter = !rightLetter;
-    //     if (rightLetter) {
-    //         return "#A7BEAE"
-    //     }
-    //     if (wrongLetter) {
-    //         return "#808080";
-    //     }
-    // }
+    function setKeyColor(pressedKey, i) {
+        var rightLetter = actualWord.includes(pressedKey);
+        var wrongLetter = !rightLetter;
+        if (rightLetter) {
+            return "#A7BEAE"
+        }
+        if (wrongLetter) {
+            return "#808080";
+        }
+    }
     function pressDel() {
         var userGuessArr = getCurrentArr();
         userGuessArr.pop();
