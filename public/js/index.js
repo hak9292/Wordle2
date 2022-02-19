@@ -77,7 +77,7 @@ function createKeyboard() {
 
 function logoutUser() {
     console.log('clicked');
-    window.location.href = '../html/signup.html';
+    window.location.href = '../html/login.html';
 
     var myHeaders = new Headers();
     myHeaders.append("Cookie", "connect.sid=s%3AhScOiaMVHuYelsSBwRcSt2-vvILYBXWZ.ikGdAVJgCOiEvz5Jm5SSAU1k8Nh%2BFad4Nz1k457Jxpo");
