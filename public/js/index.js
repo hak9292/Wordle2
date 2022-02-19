@@ -243,7 +243,11 @@ window.addEventListener("DOMContentLoaded", function () {
 
         fetch("/api/words/getWord", requestOptions)
             .then(response => response.text())
-            .then(result => console.log(result))
+            .then(result => {
+                console.log(result);
+                actualWord = result;
+                console.log(actualWord); 
+            })
             .catch(error => console.log('error', error));
     }
 
