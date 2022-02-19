@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="/css/style.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Ubuntu:wght@400;500;700&display=swap"
         rel="stylesheet">
     <title>Twordle Game</title>
 </head>
-
+<!-- style="background-color: #EEA47F" -->
 <body>
     <nav class="card display-1 text-light header-text navbar navbar-expand-lg" style="background-color: #00539C;">
         <div class="text-center">
@@ -29,10 +29,12 @@
         </div>
     </nav>
     <main class="main">
-        <div class="container" id="twordle-game"></div>
+        <div class="container d-none" id="twordle-game"></div>
         <br>
-        <button id="start-game"></button>
-        <div class="container" id="keyboard"></div>
+        <div id="start-div">
+            <button id="start-game">Start Game</button>
+        </div>
+        <div class="container d-none" id="keyboard"></div>
     </main>
     <script src="/js/index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
