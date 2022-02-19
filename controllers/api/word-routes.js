@@ -10,7 +10,9 @@ router.get('/getWord', async (req, res) => {
         const currentWord = await Words.findOne({ 
             order: sequelize.literal('rand()')
         });
+        console.log(currentWord);
         res.status(200).json(currentWord.word);
+
         
     } catch (err) {
         console.log(err);
