@@ -43,7 +43,10 @@ fetch("/api/users/login", requestOptions)
       console.log(result)
       window.location.href = '../html/index.html'
     })
-  .catch(error => console.log('error', error));
+  .catch(error => {
+    console.log('error', error);
+    window.alert('Incorrect username or password entered');
+  });
 }
 
 function jumpToSignup() {

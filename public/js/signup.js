@@ -46,7 +46,10 @@ function Signup() {
             console.log(result)
             window.location.href = '../html/index.html'
           })
-        .catch(error => console.log('error', error));
+          .catch(error => {
+            console.log('error', error);
+            window.alert('Username is not unique or password length must be greater than 5 characters');
+          });
 }
 
 loginEl.addEventListener('click', jumpToLogin);
