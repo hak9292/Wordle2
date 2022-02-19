@@ -246,7 +246,8 @@ window.addEventListener("DOMContentLoaded", function () {
             .then(result => {
                 console.log(result);
                 actualWord = result;
-                console.log(actualWord); 
+                console.log(actualWord);
+                 
             })
             .catch(error => console.log('error', error));
     }
