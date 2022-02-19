@@ -110,6 +110,7 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 /* box-sizing: border-box; */
 /* padding: 15px; */
 margin: 2px;
+border-radius: 5px;
 
 }
 /* .k-keys {
@@ -137,8 +138,8 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 left: 0;
 bottom: 0;
 width: 100%;
-padding: 5px 0;
-/* padding: 12px; */
+/* padding: 5px 0;
+padding: 12px; */
 background: #FCEDDA;
 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 user-select: none;
