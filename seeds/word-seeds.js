@@ -2,1458 +2,1457 @@ const { Words } = require('../models');
 
 const wordBank = [
   {
-    "word":'aboard',
+    "word":"aboard",
   },
   {
-    "word":'across',
+    "word":"across",
   },
   {
-    "word":'active',
+    "word":"active",
   },
   {
-    "word":'advise',
+    "word":"advise",
   },
   {
-    "word":'afraid',
+    "word":"afraid",
   },
   {
-    "word":'almost',
+    "word":"almost",
   },
   {
-    "word":'animal',
+    "word":"animal",
   },
   {
-    "word":'anyone',
+    "word":"anyone",
   },
   {
-    "word":'appear',
+    "word":"appear",
   },
   {
-    "word":'artist',
+    "word":"artist",
   },
   {
-    "word":'appear',
+    "word":"appear",
   },
   {
-    "word":'assist',
+    "word":"assist",
   },
   {
-    "word":'attend',
+    "word":"attend",
   },
   {
-    "word":'avenue',
+    "word":"avenue",
   },
   {
-    "word":'accept',
+    "word":"accept",
   },
   {
-    "word":'acting',
+    "word":"acting",
   },
   {
-    "word":'actual',
+    "word":"actual",
   },
   {
-    "word":'affect',
+    "word":"affect",
   },
   {
-    "word":'agency',
+    "word":"agency",
   },
   {
-    "word":'always',
+    "word":"always",
   },
   {
-    "word":'anyway',
+    "word":"anyway",
   },
   {
-    "word":'around',
+    "word":"around",
   },
   {
-    "word":'aspect',
+    "word":"aspect",
   },
   {
-    "word":'assume',
+    "word":"assume",
   },
   {
-    "word":'august',
+    "word":"august",
   },
   {
-    "word":'access',
+    "word":"access",
   },
   {
-    "word":'action',
+    "word":"action",
   },
   {
-    "word":'advice',
+    "word":"advice",
   },
   {
-    "word":'afford',
+    "word":"afford",
   },
   {
-    "word":'agenda',
+    "word":"agenda",
   },
   {
-    "word":'amount',
+    "word":"amount",
   },
   {
-    "word":'answer',
+    "word":"answer",
   },
   {
-    "word":'appeal',
+    "word":"appeal",
   },
   {
-    "word":'arrive',
+    "word":"arrive",
   },
   {
-    "word":'assess',
+    "word":"assess",
   },
   {
-    "word":'attack',
+    "word":"attack",
   },
   {
-    "word":'author',
+    "word":"author",
   },
   {
-    "word":'barely',
+    "word":"barely",
   },
   {
-    "word":'backed',
+    "word":"backed",
   },
   {
-    "word":'battle',
+    "word":"battle",
   },
   {
-    "word":'become',
+    "word":"become",
   },
   {
-    "word":'behind',
+    "word":"behind",
   },
   {
-    "word":'bishop',
+    "word":"bishop",
   },
   {
-    "word":'bottom',
+    "word":"bottom",
   },
   {
-    "word":'breath',
+    "word":"breath",
   },
   {
-    "word":'broken',
+    "word":"broken",
   },
   {
-    "word":'bureau',
+    "word":"bureau",
   },
   {
-    "word":'beauty',
+    "word":"beauty",
   },
   {
-    "word":'before',
+    "word":"before",
   },
   {
-    "word":'belief',
+    "word":"belief",
   },
   {
-    "word":'better',
+    "word":"better",
   },
   {
-    "word":'border',
+    "word":"border",
   },
   {
-    "word":'bought',
+    "word":"bought",
   },
   {
-    "word":'bridge',
+    "word":"bridge",
   },
   {
-    "word":'button',
+    "word":"button",
   },
   {
-    "word":'budget',
+    "word":"budget",
   },
   {
-    "word":'became',
+    "word":"became",
   },
   {
-    "word":'behalf',
+    "word":"behalf",
   },
   {
-    "word":'belong',
+    "word":"belong",
   },
   {
-    "word":'beyond',
+    "word":"beyond",
   },
   {
-    "word":'bottle',
+    "word":"bottle",
   },
   {
-    "word":'branch',
+    "word":"branch",
   },
   {
-    "word":'bright',
+    "word":"bright",
   },
   {
-    "word":'burden',
+    "word":"burden",
   },
   {
-    "word":'camera',
+    "word":"camera",
   },
   {
-    "word":'cancer',
+    "word":"cancer",
   },
   {
-    "word":'career',
+    "word":"career",
   },
   {
-    "word":'caught',
+    "word":"caught",
   },
   {
-    "word":'chance',
+    "word":"chance",
   },
   {
-    "word":'choice',
+    "word":"choice",
   },
   {
-    "word":'church',
+    "word":"church",
   },
   {
-    "word":'closed',
+    "word":"closed",
   },
   {
-    "word":'common',
+    "word":"common",
   },
   {
-    "word":'column',
+    "word":"column",
   },
   {
-    "word":'corner',
+    "word":"corner",
   },
   {
-    "word":'couple',
+    "word":"couple",
   },
   {
-    "word":'create',
+    "word":"create",
   },
   {
-    "word":'custom',
+    "word":"custom",
   },
   {
-    "word":'cannot',
+    "word":"cannot",
   },
   {
-    "word":'castle',
+    "word":"castle",
   },
   {
-    "word":'center',
+    "word":"center",
   },
   {
-    "word":'change',
+    "word":"change",
   },
   {
-    "word":'choose',
+    "word":"choose",
   },
   {
-    "word":'circle',
+    "word":"circle",
   },
   {
-    "word":'closer',
+    "word":"closer",
   },
   {
-    "word":'combat',
+    "word":"combat",
   },
   {
-    "word":'comply',
+    "word":"comply",
   },
   {
-    "word":'costly',
+    "word":"costly",
   },
   {
-    "word":'course',
+    "word":"course",
   },
   {
-    "word":'credit',
+    "word":"credit",
   },
   {
-    "word":'camera',
+    "word":"camera",
   },
   {
-    "word":'carbon',
+    "word":"carbon",
   },
   {
-    "word":'casual',
+    "word":"casual",
   },
   {
-    "word":'charge',
+    "word":"charge",
   },
   {
-    "word":'chosen',
+    "word":"chosen",
   },
   {
-    "word":'client',
+    "word":"client",
   },
   {
-    "word":'coffee',
+    "word":"coffee",
   },
   {
-    "word":'coming',
+    "word":"coming",
   },
   {
-    "word":'copper',
+    "word":"copper",
   },
   {
-    "word":'county',
+    "word":"county",
   },
   {
-    "word":'covers',
+    "word":"covers",
   },
   {
-    "word":'crisis',
+    "word":"crisis",
   },
   {
-    "word":'dealer',
+    "word":"dealer",
   },
   {
-    "word":'decide',
+    "word":"decide",
   },
   {
-    "word":'define',
+    "word":"define",
   },
   {
-    "word":'depend',
+    "word":"depend",
   },
   {
-    "word":'design',
+    "word":"design",
   },
   {
-    "word":'detect',
+    "word":"detect",
   },
   {
-    "word":'dinner',
+    "word":"dinner",
   },
   {
-    "word":'dollar',
+    "word":"dollar",
   },
   {
-    "word":'driven',
+    "word":"driven",
   },
   {
-    "word":'damage',
+    "word":"damage",
   },
   {
-    "word":'debate',
+    "word":"debate",
   },
   {
-    "word":'defeat',
+    "word":"defeat",
   },
   {
-    "word":'degree',
+    "word":"degree",
   },
   {
-    "word":'deputy',
+    "word":"deputy",
   },
   {
-    "word":'desire',
+    "word":"desire",
   },
   {
-    "word":'device',
+    "word":"device",
   },
   {
-    "word":'direct',
+    "word":"direct",
   },
   {
-    "word":'domain',
+    "word":"domain",
   },
   {
-    "word":'driver',
+    "word":"driver",
   },
   {
-    "word":'danger',
+    "word":"danger",
   },
   {
-    "word":'decade',
+    "word":"decade",
   },
   {
-    "word":'defend',
+    "word":"defend",
   },
   {
-    "word":'demand',
+    "word":"demand",
   },
   {
-    "word":'desert',
+    "word":"desert",
   },
   {
-    "word":'detail',
+    "word":"detail",
   },
   {
-    "word":'differ',
+    "word":"differ",
   },
   {
-    "word":'doctor',
+    "word":"doctor",
   },
   {
-    "word":'double',
+    "word":"double",
   },
   {
-    "word":'during',
+    "word":"during",
   },
   {
-    "word":'easily',
+    "word":"easily",
   },
   {
-    "word":'effect',
+    "word":"effect",
   },
   {
-    "word":'either',
+    "word":"either",
   },
   {
-    "word":'empire',
+    "word":"empire",
   },
   {
-    "word":'ending',
+    "word":"ending",
   },
   {
-    "word":'engine',
+    "word":"engine",
   },
   {
-    "word":'entire',
+    "word":"entire",
   },
   {
-    "word":'escape',
+    "word":"escape",
   },
   {
-    "word":'exceed',
+    "word":"exceed",
   },
   {
-    "word":'expand',
+    "word":"expand",
   },
   {
-    "word":'export',
+    "word":"export",
   },
   {
-    "word":'eating',
+    "word":"eating",
   },
   {
-    "word":'efffort',
+    "word":"efffort",
   },
   {
-    "word":'eleven',
+    "word":"eleven",
   },
   {
-    "word":'employ',
+    "word":"employ",
   },
   {
-    "word":'energy',
+    "word":"energy",
   },
   {
-    "word":'enough',
+    "word":"enough",
   },
   {
-    "word":'entity',
+    "word":"entity",
   },
   {
-    "word":'estate',
+    "word":"estate",
   },
   {
-    "word":'except',
+    "word":"except",
   },
   {
-    "word":'expect',
+    "word":"expect",
   },
   {
-    "word":'extend',
+    "word":"extend",
   },
   {
-    "word":'editor',
+    "word":"editor",
   },
   {
-    "word":'eighth',
+    "word":"eighth",
   },
   {
-    "word":'emerge',
+    "word":"emerge",
   },
   {
-    "word":'enable',
+    "word":"enable",
   },
   {
-    "word":'engage',
+    "word":"engage",
   },
   {
-    "word":'ensure',
+    "word":"ensure",
   },
   {
-    "word":'equity',
+    "word":"equity",
   },
   {
-    "word":'ethnic',
+    "word":"ethnic",
   },
   {
-    "word":'excess',
+    "word":"excess",
   },
   {
-    "word":'expert',
+    "word":"expert",
   },
   {
-    "word":'extent',
+    "word":"extent",
   },
   {
-    "word":'fabric',
+    "word":"fabric",
   },
   {
-    "word":'failed',
+    "word":"failed",
   },
   {
-    "word":'family',
+    "word":"family",
   },
   {
-    "word":'fellow',
+    "word":"fellow",
   },
   {
-    "word":'filing',
+    "word":"filing",
   },
   {
-    "word":'fiscal',
+    "word":"fiscal",
   },
   {
-    "word":'follow',
+    "word":"follow",
   },
   {
-    "word":'forget',
+    "word":"forget",
   },
   {
-    "word":'former',
+    "word":"former",
   },
   {
-    "word":'fourth',
+    "word":"fourth",
   },
   {
-    "word":'future',
+    "word":"future",
   },
   {
-    "word":'fairly',
+    "word":"fairly",
   },
   {
-    "word":'famous',
+    "word":"famous",
   },
   {
-    "word":'female',
+    "word":"female",
   },
   {
-    "word":'finger',
+    "word":"finger",
   },
   {
-    "word":'flight',
+    "word":"flight",
   },
   {
-    "word":'fallen',
+    "word":"fallen",
   },
   {
-    "word":'father',
+    "word":"father",
   },
   {
-    "word":'figure',
+    "word":"figure",
   },
   {
-    "word":'finish',
+    "word":"finish",
   },
   {
-    "word":'flying',
+    "word":"flying",
   },
   {
-    "word":'forest',
+    "word":"forest",
   },
   {
-    "word":'format',
+    "word":"format",
   },
   {
-    "word":'fought',
+    "word":"fought",
   },
   {
-    "word":'friend',
+    "word":"friend",
   },
   {
-    "word":'gender',
+    "word":"gender",
   },
   {
-    "word":'golden',
+    "word":"golden",
   },
   {
-    "word":'guilty',
+    "word":"guilty",
   },
   {
-    "word":'garden',
+    "word":"garden",
   },
   {
-    "word":'ground',
+    "word":"ground",
   },
   {
-    "word":'gather',
+    "word":"gather",
   },
   {
-    "word":'global',
+    "word":"global",
   },
   {
-    "word":'growth',
+    "word":"growth",
   },
   {
-    "word":'happen',
+    "word":"happen",
   },
   {
-    "word":'health',
+    "word":"health",
   },
   {
-    "word":'holder',
+    "word":"holder",
   },
   {
-    "word":'handed',
+    "word":"handed",
   },
   {
-    "word":'hardly',
+    "word":"hardly",
   },
   {
-    "word":'height',
+    "word":"height",
   },
   {
-    "word":'honest',
+    "word":"honest",
   },
   {
-    "word":'handle',
+    "word":"handle",
   },
   {
-    "word":'headed',
+    "word":"headed",
   },
   {
-    "word":'hidden',
+    "word":"hidden",
   },
   {
-    "word":'import',
+    "word":"import",
   },
   {
-    "word":'injury',
+    "word":"injury",
   },
   {
-    "word":'intent',
+    "word":"intent",
   },
   {
-    "word":'itself',
+    "word":"itself",
   },
   {
-    "word":'income',
+    "word":"income",
   },
   {
-    "word":'inside',
+    "word":"inside",
   },
   {
-    "word":'invest',
+    "word":"invest",
   },
   {
-    "word":'impact',
+    "word":"impact",
   },
   {
-    "word":'indeed',
+    "word":"indeed",
   },
   {
-    "word":'intend',
+    "word":"intend",
   },
   {
-    "word":'island',
+    "word":"island",
   },
   {
-    "word":'junior',
+    "word":"junior",
   },
   {
-    "word":'jersey',
+    "word":"jersey",
   },
   {
-    "word":'killed',
+    "word":"killed",
   },
   {
-    "word":'latest',
+    "word":"latest",
   },
   {
-    "word":'lawyer',
+    "word":"lawyer",
   },
   {
-    "word":'leaves',
+    "word":"leaves",
   },
   {
-    "word":'lesson',
+    "word":"lesson",
   },
   {
-    "word":'likely',
+    "word":"likely",
   },
   {
-    "word":'listen',
+    "word":"listen",
   },
   {
-    "word":'losing',
+    "word":"losing",
   },
   {
-    "word":'leader',
+    "word":"leader",
   },
   {
-    "word":'legacy',
+    "word":"legacy",
   },
   {
-    "word":'letter',
+    "word":"letter",
   },
   {
-    "word":'linked',
+    "word":"linked",
   },
   {
-    "word":'little',
+    "word":"little",
   },
   {
-    "word":'lucent',
+    "word":"lucent",
   },
   {
-    "word":'labor',
+    "word":"labor",
   },
   {
-    "word":'launch',
+    "word":"launch",
   },
   {
-    "word":'league',
+    "word":"league",
   },
   {
-    "word":'length',
+    "word":"length",
   },
   {
-    "word":'lights',
+    "word":"lights",
   },
   {
-    "word":'liquid',
+    "word":"liquid",
   },
   {
-    "word":'living',
+    "word":"living",
   },
   {
-    "word":'luxury',
+    "word":"luxury",
   },
   {
-    "word":'mainly',
+    "word":"mainly",
   },
   {
-    "word":'manner',
+    "word":"manner",
   },
   {
-    "word":'marine',
+    "word":"marine",
   },
   {
-    "word":'mature',
+    "word":"mature",
   },
   {
-    "word":'memory',
+    "word":"memory",
   },
   {
-    "word":'merger',
+    "word":"merger",
   },
   {
-    "word":'miller',
+    "word":"miller",
   },
   {
-    "word":'mirror',
+    "word":"mirror",
   },
   {
-    "word":'modest',
+    "word":"modest",
   },
   {
-    "word":'museum',
+    "word":"museum",
   },
   {
-    "word":'making',
+    "word":"making",
   },
   {
-    "word":'manual',
+    "word":"manual",
   },
   {
-    "word":'marked',
+    "word":"marked",
   },
   {
-    "word":'master',
+    "word":"master",
   },
   {
-    "word":'medium',
+    "word":"medium",
   },
   {
-    "word":'mental',
+    "word":"mental",
   },
   {
-    "word":'method',
+    "word":"method",
   },
   {
-    "word":'mining',
+    "word":"mining",
   },
   {
-    "word":'mobile',
+    "word":"mobile",
   },
   {
-    "word":'module',
+    "word":"module",
   },
   {
-    "word":'mostly',
+    "word":"mostly",
   },
   {
-    "word":'moving',
+    "word":"moving",
   },
   {
-    "word":'mutual',
+    "word":"mutual",
   },
   {
-    "word":'manage',
+    "word":"manage",
   },
   {
-    "word":'margin',
+    "word":"margin",
   },
   {
-    "word":'market',
+    "word":"market",
   },
   {
-    "word":'matter',
+    "word":"matter",
   },
   {
-    "word":'member',
+    "word":"member",
   },
   {
-    "word":'merely',
+    "word":"merely",
   },
   {
-    "word":'middle',
+    "word":"middle",
   },
   {
-    "word":'minute',
+    "word":"minute",
   },
   {
-    "word":'modern',
+    "word":"modern",
   },
   {
-    "word":'moment',
+    "word":"moment",
   },
   {
-    "word":'mother',
+    "word":"mother",
   },
   {
-    "word":'murder',
+    "word":"murder",
   },
   {
-    "word":'myself',
+    "word":"myself",
   },
   {
-    "word":'narrow',
+    "word":"narrow",
   },
   {
-    "word":'nature',
+    "word":"nature",
   },
   {
-    "word":'nights',
+    "word":"nights",
   },
   {
-    "word":'notice',
+    "word":"notice",
   },
   {
-    "word":'nation',
+    "word":"nation",
   },
   {
-    "word":'nearby',
+    "word":"nearby",
   },
   {
-    "word":'nobody',
+    "word":"nobody",
   },
   {
-    "word":'notion',
+    "word":"notion",
   },
   {
-    "word":'native',
+    "word":"native",
   },
   {
-    "word":'nearly',
+    "word":"nearly",
   },
   {
-    "word":'normal',
+    "word":"normal",
   },
   {
-    "word":'number',
+    "word":"number",
   },
   {
-    "word":'object',
+    "word":"object",
   },
   {
-    "word":'offset',
+    "word":"offset",
   },
   {
-    "word":'orange',
+    "word":"orange",
   },
   {
-    "word":'oxford',
+    "word":"oxford",
   },
   {
-    "word":'obtain',
+    "word":"obtain",
   },
   {
-    "word":'online',
+    "word":"online",
   },
   {
-    "word":'origin',
+    "word":"origin",
   },
   {
-    "word":'office',
+    "word":"office",
   },
   {
-    "word":'output',
+    "word":"output",
   },
   {
-    "word":'parent',
+    "word":"parent",
   },
   {
-    "word":'people',
+    "word":"people",
   },
   {
-    "word":'person',
+    "word":"person",
   },
   {
-    "word":'planet',
+    "word":"planet",
   },
   {
-    "word":'plenty',
+    "word":"plenty",
   },
   {
-    "word":'policy',
+    "word":"policy",
   },
   {
-    "word":'prince',
+    "word":"prince",
   },
   {
-    "word":'proper',
+    "word":"proper",
   },
   {
-    "word":'pursue',
+    "word":"pursue",
   },
   {
-    "word":'packed',
+    "word":"packed",
   },
   {
-    "word":'partly',
+    "word":"partly",
   },
   {
-    "word":'period',
+    "word":"period",
   },
   {
-    "word":'phrase',
+    "word":"phrase",
   },
   {
-    "word":'player',
+    "word":"player",
   },
   {
-    "word":'pocket',
+    "word":"pocket",
   },
   {
-    "word":'prefer',
+    "word":"prefer",
   },
   {
-    "word":'prison',
+    "word":"prison",
   },
   {
-    "word":'proven',
+    "word":"proven",
   },
   {
-    "word":'palace',
+    "word":"palace",
   },
   {
-    "word":'patent',
+    "word":"patent",
   },
   {
-    "word":'permit',
+    "word":"permit",
   },
   {
-    "word":'piked',
+    "word":"piked",
   },
   {
-    "word":'please',
+    "word":"please",
   },
   {
-    "word":'police',
+    "word":"police",
   },
   {
-    "word":'pretty',
+    "word":"pretty",
   },
   {
-    "word":'profit',
+    "word":"profit",
   },
   {
-    "word":'public',
+    "word":"public",
   },
   {
-    "word":'rarely',
+    "word":"rarely",
   },
   {
-    "word":'reader',
+    "word":"reader",
   },
   {
-    "word":'recall',
+    "word":"recall",
   },
   {
-    "word":'reduce',
+    "word":"reduce",
   },
   {
-    "word":'regime',
+    "word":"regime",
   },
   {
-    "word":'releif',
+    "word":"releif",
   },
   {
-    "word":'remove',
+    "word":"remove",
   },
   {
-    "word":'replay',
+    "word":"replay",
   },
   {
-    "word":'resort',
+    "word":"resort",
   },
   {
-    "word":'retain',
+    "word":"retain",
   },
   {
-    "word":'review',
+    "word":"review",
   },
   {
-    "word":'rising',
+    "word":"rising",
   },
   {
-    "word":'raised',
+    "word":"raised",
   },
   {
-    "word":'rather',
+    "word":"rather",
   },
   {
-    "word":'really',
+    "word":"really",
   },
   {
-    "word":'recent',
+    "word":"recent",
   },
   {
-    "word":'reform',
+    "word":"reform",
   },
   {
-    "word":'region',
+    "word":"region",
   },
   {
-    "word":'remain',
+    "word":"remain",
   },
   {
-    "word":'repair',
+    "word":"repair",
   },
   {
-    "word":'report',
+    "word":"report",
   },
   {
-    "word":'result',
+    "word":"result",
   },
   {
-    "word":'return',
+    "word":"return",
   },
   {
-    "word":'reward',
+    "word":"reward",
   },
   {
-    "word":'robust',
+    "word":"robust",
   },
   {
-    "word":'random',
+    "word":"random",
   },
   {
-    "word":'rating',
+    "word":"rating",
   },
   {
-    "word":'reason',
+    "word":"reason",
   },
   {
-    "word":'record',
+    "word":"record",
   },
   {
-    "word":'regard',
+    "word":"regard",
   },
   {
-    "word":'relate',
+    "word":"relate",
   },
   {
-    "word":'remote',
+    "word":"remote",
   },
   {
-    "word":'repeat',
+    "word":"repeat",
   },
   {
-    "word":'rescue',
+    "word":"rescue",
   },
   {
-    "word":'retail',
+    "word":"retail",
   },
   {
-    "word":'reveal',
+    "word":"reveal",
   },
   {
-    "word":'riding',
+    "word":"riding",
   },
   {
-    "word":'ruling',
+    "word":"ruling",
   },
   {
-    "word":'safety',
+    "word":"safety",
   },
   {
-    "word":'saving',
+    "word":"saving",
   },
   {
-    "word":'school',
+    "word":"school",
   },
   {
-    "word":'season',
+    "word":"season",
   },
   {
-    "word":'sector',
+    "word":"sector",
   },
   {
-    "word":'select',
+    "word":"select",
   },
   {
-    "word":'series',
+    "word":"series",
   },
   {
-    "word":'severe',
+    "word":"severe",
   },
   {
-    "word":'signal',
+    "word":"signal",
   },
   {
-    "word":'silver',
+    "word":"silver",
   },
   {
-    "word":'single',
+    "word":"single",
   },
   {
-    "word":'smooth',
+    "word":"smooth",
   },
   {
-    "word":'sought',
+    "word":"sought",
   },
   {
-    "word":'speech',
+    "word":"speech",
   },
   {
-    "word":'spread',
+    "word":"spread",
   },
   {
-    "word":'stable',
+    "word":"stable",
   },
   {
-    "word":'stolen',
+    "word":"stolen",
   },
   {
-    "word":'street',
+    "word":"street",
   },
   {
-    "word":'strike',
+    "word":"strike",
   },
   {
-    "word":'struck',
+    "word":"struck",
   },
   {
-    "word":'sudden',
+    "word":"sudden",
   },
   {
-    "word":'summit',
+    "word":"summit",
   },
   {
-    "word":'survey',
+    "word":"survey",
   },
   {
-    "word":'system',
+    "word":"system",
   },
   {
-    "word":'salary',
+    "word":"salary",
   },
   {
-    "word":'saying ',
+    "word":"saying ",
   },
   {
-    "word":'screen',
+    "word":"screen",
   },
   {
-    "word":'second',
+    "word":"second",
   },
   {
-    "word":'secure',
+    "word":"secure",
   },
   {
-    "word":'seller',
+    "word":"seller",
   },
   {
-    "word":'server',
+    "word":"server",
   },
   {
-    "word":'signed',
+    "word":"signed",
   },
   {
-    "word":'simple',
+    "word":"simple",
   },
   {
-    "word":'sister',
+    "word":"sister",
   },
   {
-    "word":'social',
+    "word":"social",
   },
   {
-    "word":'source',
+    "word":"source",
   },
   {
-    "word":'spirit',
+    "word":"spirit",
   },
   {
-    "word":'spring',
+    "word":"spring",
   },
   {
-    "word":'status',
+    "word":"status",
   },
   {
-    "word":'strain',
+    "word":"strain",
   },
   {
-    "word":'stress',
+    "word":"stress",
   },
   {
-    "word":'string',
+    "word":"string",
   },
   {
-    "word":'studio',
+    "word":"studio",
   },
   {
-    "word":'suffer',
+    "word":"suffer",
   },
   {
-    "word":'supply',
+    "word":"supply",
   },
   {
-    "word":'switch',
+    "word":"switch",
   },
   {
-    "word":'sample',
+    "word":"sample",
   },
   {
-    "word":'scheme',
+    "word":"scheme",
   },
   {
-    "word":'search',
+    "word":"search",
   },
   {
-    "word":'secret',
+    "word":"secret",
   },
   {
-    "word":'seeing',
+    "word":"seeing",
   },
   {
-    "word":'senior',
+    "word":"senior",
   },
   {
-    "word":'settle',
+    "word":"settle",
   },
   {
-    "word":'should',
+    "word":"should",
   },
   {
-    "word":'silent',
+    "word":"silent",
   },
   {
-    "word":'simply',
+    "word":"simply",
   },
   {
-    "word":'slight',
+    "word":"slight",
   },
   {
-    "word":'solely',
+    "word":"solely",
   },
   {
-    "word":'spoken',
+    "word":"spoken",
   },
   {
-    "word":'square',
+    "word":"square",
   },
   {
-    "word":'steady',
+    "word":"steady",
   },
   {
-    "word":'stream',
+    "word":"stream",
   },
   {
-    "word":'strict',
+    "word":"strict",
   },
   {
-    "word":'strong',
+    "word":"strong",
   },
   {
-    "word":'submit',
+    "word":"submit",
   },
   {
-    "word":'summer',
+    "word":"summer",
   },
   {
-    "word":'surely',
+    "word":"surely",
   },
   {
-    "word":'symbol',
+    "word":"symbol",
   },
   {
-    "word":'target',
+    "word":"target",
   },
   {
-    "word":'tender',
+    "word":"tender",
   },
   {
-    "word":'theory',
+    "word":"theory",
   },
   {
-    "word":'threat',
+    "word":"threat",
   },
   {
-    "word":'timely',
+    "word":"timely",
   },
   {
-    "word":'toward',
+    "word":"toward",
   },
   {
-    "word":'trying',
+    "word":"trying",
   },
   {
-    "word":'taking',
+    "word":"taking",
   },
   {
-    "word":'taught',
+    "word":"taught",
   },
   {
-    "word":'tennis',
+    "word":"tennis",
   },
   {
-    "word":'thirty',
+    "word":"thirty",
   },
   {
-    "word":'thrown',
+    "word":"thrown",
   },
   {
-    "word":'timing',
+    "word":"timing",
   },
   {
-    "word":'travel',
+    "word":"travel",
   },
   {
-    "word":'twelve',
+    "word":"twelve",
   },
   {
-    "word":'talent',
+    "word":"talent",
   },
   {
-    "word":'tenant',
+    "word":"tenant",
   },
   {
-    "word":'thanks',
+    "word":"thanks",
   },
   {
-    "word":'though',
+    "word":"though",
   },
   {
-    "word":'ticket',
+    "word":"ticket",
   },
   {
-    "word":'tissue',
+    "word":"tissue",
   },
   {
-    "word":'treaty',
+    "word":"treaty",
   },
   {
-    "word":'twenty',
+    "word":"twenty",
   },
   {
-    "word":'unable',
+    "word":"unable",
   },
   {
-    "word":'unless',
+    "word":"unless",
   },
   {
-    "word":'useful',
+    "word":"useful",
   },
   {
-    "word":'unique',
+    "word":"unique",
   },
   {
-    "word":'unlike',
+    "word":"unlike",
   },
   {
-    "word":'united',
+    "word":"united",
   },
   {
-    "word":'update',
+    "word":"update",
   },
   {
-    "word":'vendor',
+    "word":"vendor",
   },
   {
-    "word":'vision',
+    "word":"vision",
   },
   {
-    "word":'valley',
+    "word":"valley",
   },
   {
-    "word":'versus',
+    "word":"versus",
   },
   {
-    "word":'visual',
+    "word":"visual",
   },
   {
-    "word":'varied',
+    "word":"varied",
   },
   {
-    "word":'victim',
+    "word":"victim",
   },
   {
-    "word":'volume',
+    "word":"volume",
   },
   {
-    "word":'walker',
+    "word":"walker",
   },
   {
-    "word":'weight',
+    "word":"weight",
   },
   {
-    "word":'winner',
+    "word":"winner",
   },
   {
-    "word":'wonder',
+    "word":"wonder",
   },
   {
-    "word":'writer',
+    "word":"writer",
   },
   {
-    "word":'wealth',
+    "word":"wealth",
   },
   {
-    "word":'wholly',
+    "word":"wholly",
   },
   {
-    "word":'winter',
+    "word":"winter",
   },
   {
-    "word":'worker',
+    "word":"worker",
   },
   {
-    "word":'weekly',
+    "word":"weekly",
   },
   {
-    "word":'window',
+    "word":"window",
   },
   {
-    "word":'within',
+    "word":"within",
   },
   {
-    "word":'wright',
+    "word":"wright",
   },
   {
-    "word":'yellow',
+    "word":"yellow",
   }
-
 ];
 
 const seedWords = () => Words.bulkCreate(wordBank);
