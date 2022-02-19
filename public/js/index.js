@@ -11,11 +11,9 @@ const row2Count = keys.r2.length;
 const row3Count = keys.r3.length;
 
 const logoutEl = document.querySelector('#logout-button')
+const startGameEl = document.querySelector('#start-game');
 
 
-//scoreboard
-//const scoreModalEl = $('#score-modal');
-//scoreModalEl.modal('hide')--where to put?
 
 // Invoke createBoard when someone successfully logs in or
 // when app fetches login data and logs user in automatically
@@ -230,6 +228,26 @@ window.addEventListener("DOMContentLoaded", function () {
             .catch(error => console.log('error', error));
     }
 
-    logoutEl.addEventListener('click', logoutUser)
+
+    function startGame() {
+        console.log('start new game');
+
+        var myHeaders = new Headers();
+        myHeaders.append("Cookie", "connect.sid=s%3A0soKx7vXp2KX3AVCzKRcF5x-ZmB86YcD.0vkohKMORoBsNoUFLh%2FU0NOrXuvGFhwTsNIIohpHAGU");
+
+        var requestOptions = {
+            method: 'GET',
+            headers: myHeaders,
+            redirect: 'follow'
+        };
+
+        fetch("/api/words/getWord", requestOptions)
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
+    }
+
+    logoutEl.addEventListener('click', logoutUser);
+    startGameEl.addEventListener('click', startGame);
 
 });
