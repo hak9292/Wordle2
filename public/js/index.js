@@ -40,6 +40,7 @@ function createBoard() {
             // tileMaker.setAttribute('id', `r${r + 1}-col${c + 1}-tile`);
         };
     };
+    
 };
 
 function createKeyboard() {
@@ -147,7 +148,6 @@ window.addEventListener("DOMContentLoaded", function () {
                 var guessId = firstGuess + i;
                 var guessEl = document.getElementById(guessId);
                 var keyEl = document.getElementById(`key-${pressedKey}`);
-                console.log(keyEl);
                 keyColor = getKeyColor(pressedKey, keyEl);
                 keyEl.style = `background-color: ${keyColor}`;
                 guessEl.classList.add("animate__flipInY");
@@ -186,7 +186,7 @@ window.addEventListener("DOMContentLoaded", function () {
         if (checker === 0) {
         var userGuessArr = getCurrentArr();
         userGuessArr.pop();
-    
+
         tries[tries.length - 1] = userGuessArr;
         var lastLetterEl = document.getElementById(String(openBox - 1));
         lastLetterEl.textContent = '';
