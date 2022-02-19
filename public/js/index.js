@@ -203,17 +203,6 @@ function startGame() {
                         window.alert("That is not a word!");
                     } else {
                         attempts = attempts + 1;
-                        if (userGuessArr.length < 6) {
-                            window.alert('The word must be 6 letters!');
-                            return;
-                        }
-                        if (userGuess === actualWord) {
-                            window.alert('Yes, that is correct!');
-                            location.reload();
-                        }
-                        if (attempts === 7 && userGuess !== actualWord) {
-                            window.alert(`Sorry! You are out of tries. The word was ${actualWord}`);
-                        }
                         userGuessArr.forEach((pressedKey, i) => {
                             setTimeout(() => {
                                 var squareColor = getSquareColor(pressedKey, i);
@@ -226,6 +215,18 @@ function startGame() {
                                 guessEl.style = `background-color: ${squareColor}; border-color: ${squareColor}`;
                             }, timeInt * i)
                         });
+                        if (userGuessArr.length < 6) {
+                            window.alert('The word must be 6 letters!');
+                            return;
+                        }
+                        if (userGuess === actualWord) {
+                            window.alert('Yes, that is correct!');
+                            location.reload();
+                        }
+                        if (attempts === 7 && userGuess !== actualWord) {
+                            window.alert(`Sorry! You are out of tries. The word was ${actualWord}`);
+                        }
+
                         tries.push([]);
                     }
                 });
