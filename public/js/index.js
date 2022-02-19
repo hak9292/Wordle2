@@ -194,12 +194,22 @@ function startGame() {
             redirect: 'follow'
         };
 
-
+        if (userGuessArr.length < 6) {
+            window.alert('The word must be 6 letters!');
+            return;
+        }
         fetch("/api/words/checkWord", requestOptions)
             .then(result => {
                 result.json().then((response) => {
                     // console.log("check word:" + response);
                     if (response === 0) {
+                        userGuessArr.forEach((pressedKey, i) => {
+                            setTimeout(() => {
+                                var guessId = firstGuess + i;
+                                var guessEl = document.getElementById(guessId);
+                                guessEl.classList.add("animate__shakeX");
+                            }, timeInt * i)
+                        });
                         window.alert("That is not a word!");
                     } else {
                         attempts = attempts + 1;
@@ -215,10 +225,7 @@ function startGame() {
                                 guessEl.style = `background-color: ${squareColor}; border-color: ${squareColor}`;
                             }, timeInt * i)
                         });
-                        if (userGuessArr.length < 6) {
-                            window.alert('The word must be 6 letters!');
-                            return;
-                        }
+
                         if (userGuess === actualWord) {
                             window.alert('Yes, that is correct!');
                             location.reload();
