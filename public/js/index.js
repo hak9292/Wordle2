@@ -40,7 +40,7 @@ function createBoard() {
             // tileMaker.setAttribute('id', `r${r + 1}-col${c + 1}-tile`);
         };
     };
-    
+
 };
 
 function createKeyboard() {
@@ -72,7 +72,57 @@ function createKeyboard() {
         delKey.style.color = "#EEA47F";
     }
 }
-window.addEventListener("DOMContentLoaded", function () {
+
+
+
+function logoutUser() {
+    console.log('clicked');
+    window.location.href = '../html/signup.html';
+
+    var myHeaders = new Headers();
+    myHeaders.append("Cookie", "connect.sid=s%3AhScOiaMVHuYelsSBwRcSt2-vvILYBXWZ.ikGdAVJgCOiEvz5Jm5SSAU1k8Nh%2BFad4Nz1k457Jxpo");
+
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        redirect: 'follow'
+    };
+
+    fetch("/api/users/logout", requestOptions)
+        .then(response => response.text())
+        .then(result => {
+            console.log(result)
+            window.location.href = '../html/login.html'
+        })
+        .catch(error => console.log('error', error));
+}
+
+
+function startGame() {
+    $('#start-game').hide();
+    console.log('start new game');
+    var actualWord;
+    var myHeaders = new Headers();
+    myHeaders.append("Cookie", "connect.sid=s%3A0soKx7vXp2KX3AVCzKRcF5x-ZmB86YcD.0vkohKMORoBsNoUFLh%2FU0NOrXuvGFhwTsNIIohpHAGU");
+
+    var requestOptions = {
+        method: 'GET',
+        headers: myHeaders,
+        redirect: 'follow'
+    };
+
+    fetch("/api/words/getWord", requestOptions)
+        .then(result => {
+            result.json().then((response) => {
+                console.log(response);
+                actualWord = response;
+            });
+            // actualWord = result.json().word;
+
+
+        })
+        .catch(error => console.log('error', error));
+
     createBoard();
     createKeyboard();
 
@@ -84,13 +134,13 @@ window.addEventListener("DOMContentLoaded", function () {
     // goDel.parentNode.removeChild(goDel);
     var tries = [[]];
     var openBox = 1;
-    var actualWord = "aaaaab";
+
     var attempts = 0;
 
     var myset = new Set();
     myset.add("first");
 
-    myset.add("user"); 
+    myset.add("user");
     //true if not in set
     // false if in set
     // get all valid wrods from database
@@ -131,30 +181,61 @@ window.addEventListener("DOMContentLoaded", function () {
         var firstGuess = attempts * 6 + 1;
         // ******NEED TO SET KEY COLOR*********
         // var keyEl = document.getElementById(`key-${pressedKey});
-        attempts = attempts + 1;
-        if (userGuessArr.length < 6) {
-            window.alert('Word must be 6 letters!');
-            return;
-        }
-        if (userGuess === actualWord) {
-            window.alert('yes, indeed');
-        }
-        if (attempts === 7) {
-            window.alert(`dont be sorry, be better :). The word was ${actualWord}`);
-        }
-        userGuessArr.forEach((pressedKey, i) => {
-            setTimeout(() => {
-                var squareColor = getSquareColor(pressedKey, i);
-                var guessId = firstGuess + i;
-                var guessEl = document.getElementById(guessId);
-                var keyEl = document.getElementById(`key-${pressedKey}`);
-                keyColor = getKeyColor(pressedKey, keyEl);
-                keyEl.style = `background-color: ${keyColor}`;
-                guessEl.classList.add("animate__flipInY");
-                guessEl.style = `background-color: ${squareColor}; border-color: ${squareColor}`;
-            }, timeInt * i)
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        myHeaders.append("Cookie", "connect.sid=s%3AFU_fOYMJ4uhwhEJEAnbIszw0iIA44NAs.GsZ%2BabULaYaXpk5EqV7CKnWy2xil%2Be2HP0jn97WhSHw");
+
+        var raw = JSON.stringify({
+            "reqWord": userGuess
         });
-        tries.push([]);
+        var requestOptions = {
+            body: raw,
+            method: 'POST',
+            headers: myHeaders,
+            redirect: 'follow'
+        };
+
+
+        fetch("/api/words/checkWord", requestOptions)
+            .then(result => {
+                result.json().then((response) => {
+                    console.log("check word:" + response);
+                    if (response === 0) {
+                        window.alert("not a word");
+                    } else {
+                        attempts = attempts + 1;
+                        if (userGuessArr.length < 6) {
+                            window.alert('Word must be 6 letters!');
+                            return;
+                        }
+                        if (userGuess === actualWord) {
+                            window.alert('yes, indeed');
+                            location.reload();
+                        }
+                        if (attempts === 7) {
+                            window.alert(`dont be sorry, be better :). The word was ${actualWord}`);
+                        }
+                        userGuessArr.forEach((pressedKey, i) => {
+                            setTimeout(() => {
+                                var squareColor = getSquareColor(pressedKey, i);
+                                var guessId = firstGuess + i;
+                                var guessEl = document.getElementById(guessId);
+                                var keyEl = document.getElementById(`key-${pressedKey}`);
+                                keyColor = getKeyColor(pressedKey, keyEl);
+                                keyEl.style = `background-color: ${keyColor}`;
+                                guessEl.classList.add("animate__flipInY");
+                                guessEl.style = `background-color: ${squareColor}; border-color: ${squareColor}`;
+                            }, timeInt * i)
+                        });
+                        tries.push([]);
+                    }
+                });
+                // actualWord = result.json().word;
+            
+            })
+            .catch(error => console.log('error', error));
+
+        
     }
     function getSquareColor(pressedKey, i) {
         var rightLetter = actualWord.includes(pressedKey);
@@ -183,16 +264,14 @@ window.addEventListener("DOMContentLoaded", function () {
     }
     function pressDel() {
         var checker = openBox % 6;
-        if (checker === 0) {
         var userGuessArr = getCurrentArr();
-        userGuessArr.pop();
+        if (userGuessArr.length > 0) {
+            userGuessArr.pop();
+            tries[tries.length - 1] = userGuessArr;
+            var lastLetterEl = document.getElementById(String(openBox - 1));
+            lastLetterEl.textContent = '';
+            openBox = openBox - 1;
 
-        tries[tries.length - 1] = userGuessArr;
-        var lastLetterEl = document.getElementById(String(openBox - 1));
-        lastLetterEl.textContent = '';
-        openBox = openBox - 1;
-        } else {
-            return;
         }
     }
     function printLetter(pressedKey) {
@@ -202,7 +281,6 @@ window.addEventListener("DOMContentLoaded", function () {
             var openBoxEl = document.getElementById(String(openBox));
             openBox = openBox + 1;
             openBoxEl.textContent = pressedKey;
-
         }
     }
 
@@ -210,55 +288,8 @@ window.addEventListener("DOMContentLoaded", function () {
         var numOfLetters = tries.length;
         return tries[numOfLetters - 1];
     }
+}
 
+logoutEl.addEventListener('click', logoutUser);
+startGameEl.addEventListener('click', startGame);
 
-    function logoutUser() {
-        console.log('clicked');
-        window.location.href = '../html/signup.html';
-
-        var myHeaders = new Headers();
-        myHeaders.append("Cookie", "connect.sid=s%3AhScOiaMVHuYelsSBwRcSt2-vvILYBXWZ.ikGdAVJgCOiEvz5Jm5SSAU1k8Nh%2BFad4Nz1k457Jxpo");
-
-        var requestOptions = {
-            method: 'POST',
-            headers: myHeaders,
-            redirect: 'follow'
-        };
-
-        fetch("/api/users/logout", requestOptions)
-            .then(response => response.text())
-            .then(result => {
-                console.log(result)
-                window.location.href = '../html/login.html'
-            })
-            .catch(error => console.log('error', error));
-    }
-
-
-    function startGame() {
-        console.log('start new game');
-
-        var myHeaders = new Headers();
-        myHeaders.append("Cookie", "connect.sid=s%3A0soKx7vXp2KX3AVCzKRcF5x-ZmB86YcD.0vkohKMORoBsNoUFLh%2FU0NOrXuvGFhwTsNIIohpHAGU");
-
-        var requestOptions = {
-            method: 'GET',
-            headers: myHeaders,
-            redirect: 'follow'
-        };
-
-        fetch("/api/words/getWord", requestOptions)
-            .then(response => response.text())
-            .then(result => {
-                console.log(result);
-                actualWord = result;
-                console.log(actualWord);
-                 
-            })
-            .catch(error => console.log('error', error));
-    }
-
-    logoutEl.addEventListener('click', logoutUser);
-    startGameEl.addEventListener('click', startGame);
-
-});
