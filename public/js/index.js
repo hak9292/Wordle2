@@ -199,7 +199,7 @@ function startGame() {
         fetch("/api/words/checkWord", requestOptions)
             .then(result => {
                 result.json().then((response) => {
-                    console.log("check word:" + response);
+                    // console.log("check word:" + response);
                     if (response === 0) {
                         window.alert("not a word");
                     } else {
@@ -212,7 +212,7 @@ function startGame() {
                             window.alert('yes, indeed');
                             location.reload();
                         }
-                        if (attempts === 7) {
+                        if (attempts === 7 && userGuess !== actualWord) {
                             window.alert(`dont be sorry, be better :). The word was ${actualWord}`);
                         }
                         userGuessArr.forEach((pressedKey, i) => {
@@ -271,7 +271,6 @@ function startGame() {
             var lastLetterEl = document.getElementById(String(openBox - 1));
             lastLetterEl.textContent = '';
             openBox = openBox - 1;
-
         }
     }
     function printLetter(pressedKey) {
