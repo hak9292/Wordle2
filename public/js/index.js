@@ -37,7 +37,7 @@ function createBoard() {
             colMaker.setAttribute('id', (boxNum));
             // $(colMaker).html(c * 10);
             // document.getElementById(`r${r + 1}-col${c + 1}`).appendChild(tileMaker);
-            // tileMaker.setAttribute('id', `r${r + 1}-col${c + 1}-tile`)
+            // tileMaker.setAttribute('id', `r${r + 1}-col${c + 1}-tile`);
         };
     };
 };
@@ -65,9 +65,9 @@ function createKeyboard() {
     function setKBAttr() {
         var goKey = document.getElementById('key-go');
         goKey.style.color = "#A7BEAE";
-        goKey.className = 'col key go-del'
+        goKey.className = 'col key go-del';
         var delKey = document.getElementById('key-del');
-        delKey.className = 'col key go-del'
+        delKey.className = 'col key go-del';
         delKey.style.color = "#EEA47F";
     }
 }
@@ -143,12 +143,12 @@ window.addEventListener("DOMContentLoaded", function () {
         }
         userGuessArr.forEach((pressedKey, i) => {
             setTimeout(() => {
-                var squareColor = setSquareColor(pressedKey, i);
+                var squareColor = getSquareColor(pressedKey, i);
                 var guessId = firstGuess + i;
                 var guessEl = document.getElementById(guessId);
                 var keyEl = document.getElementById(`key-${pressedKey}`);
                 console.log(keyEl);
-                keyColor = setKeyColor(pressedKey, keyEl);
+                keyColor = getKeyColor(pressedKey, keyEl);
                 keyEl.style = `background-color: ${keyColor}`;
                 guessEl.classList.add("animate__flipInY");
                 guessEl.style = `background-color: ${squareColor}; border-color: ${squareColor}`;
@@ -156,7 +156,7 @@ window.addEventListener("DOMContentLoaded", function () {
         });
         tries.push([]);
     }
-    function setSquareColor(pressedKey, i) {
+    function getSquareColor(pressedKey, i) {
         var rightLetter = actualWord.includes(pressedKey);
         var wrongLetter = !rightLetter;
         var letterLocation = actualWord.charAt(i);
@@ -171,7 +171,7 @@ window.addEventListener("DOMContentLoaded", function () {
             return '#A7BEAE'
         }
     }
-    function setKeyColor(pressedKey, i) {
+    function getKeyColor(pressedKey, i) {
         var rightLetter = actualWord.includes(pressedKey);
         var wrongLetter = !rightLetter;
         if (rightLetter) {
@@ -182,12 +182,18 @@ window.addEventListener("DOMContentLoaded", function () {
         }
     }
     function pressDel() {
+        var checker = openBox % 6;
+        if (checker === 0) {
         var userGuessArr = getCurrentArr();
         userGuessArr.pop();
+    
         tries[tries.length - 1] = userGuessArr;
         var lastLetterEl = document.getElementById(String(openBox - 1));
         lastLetterEl.textContent = '';
         openBox = openBox - 1;
+        } else {
+            return;
+        }
     }
     function printLetter(pressedKey) {
         var userGuessArr = getCurrentArr();
