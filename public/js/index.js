@@ -201,19 +201,19 @@ function startGame() {
                 result.json().then((response) => {
                     // console.log("check word:" + response);
                     if (response === 0) {
-                        window.alert("not a word");
+                        window.alert("That is not a word!");
                     } else {
                         attempts = attempts + 1;
                         if (userGuessArr.length < 6) {
-                            window.alert('Word must be 6 letters!');
+                            window.alert('The word must be 6 letters!');
                             return;
                         }
                         if (userGuess === actualWord) {
-                            window.alert('yes, indeed');
+                            window.alert('Yes, that is correct!');
                             location.reload();
                         }
                         if (attempts === 7 && userGuess !== actualWord) {
-                            window.alert(`dont be sorry, be better :). The word was ${actualWord}`);
+                            window.alert(`Sorry! You are out of tries. The word was ${actualWord}`);
                         }
                         userGuessArr.forEach((pressedKey, i) => {
                             setTimeout(() => {
